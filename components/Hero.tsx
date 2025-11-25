@@ -23,7 +23,7 @@ const Hero: React.FC = () => {
           <h1 className="text-4xl md:text-6xl font-bold tracking-tight mb-6 leading-tight">
             Webseiten, die <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-emerald-400">funktionieren</span>.
             <br />
-            <span className="text-slate-400 text-3xl md:text-5xl">Aus Altomünster.</span>
+            <span className="text-slate-400 text-3xl md:text-5xl">aus Altomünster.</span>
           </h1>
           
           <p className="text-lg md:text-xl text-slate-300 mb-8 max-w-2xl mx-auto">

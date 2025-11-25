@@ -1,10 +1,11 @@
 import { GoogleGenAI, Type } from "@google/genai";
 import { WebConcept } from "../types";
 
-const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
-
 export const generateWebConcept = async (businessName: string, businessType: string): Promise<WebConcept> => {
   try {
+    // Initialize inside the function to prevent app crash on load if env is missing
+    const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
+    
     const model = "gemini-2.5-flash";
     const prompt = `
       Erstelle ein Webseiten-Konzept für ein kleines Unternehmen in Deutschland.
