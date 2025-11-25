@@ -1,98 +1,90 @@
 import React from 'react';
-import { Hammer, Utensils, Briefcase, Smartphone, MessageCircle, Search } from 'lucide-react';
+import { Hammer, Utensils, Briefcase, Smartphone, BarChart3, ShieldCheck, ArrowRight } from 'lucide-react';
 
 const Services: React.FC = () => {
   const services = [
     {
-      title: "Für Handwerker",
-      description: "Zeigen Sie Ihre besten Projekte. Eine klare Galerie, Vertrauens-Elemente und einfache Kontaktmöglichkeiten sorgen für neue Aufträge.",
+      title: "Handwerk & Bau",
+      description: "Überzeugen Sie Bauherren mit professionellen Referenzen. Digitale Anfrageformulare reduzieren Ihren Büroaufwand.",
       icon: Hammer,
-      features: ["Projekt-Galerie", "Anfrage-Formular", "Google Maps Integration"]
+      highlight: false
     },
     {
-      title: "Für Restaurants",
-      description: "Mehr Bestellungen ohne hohe Gebühren. Digitale Speisekarte und direkte Bestellung per WhatsApp – einfach und effizient.",
+      title: "Gastronomie",
+      description: "Moderne Speisekarten und direkte WhatsApp-Bestellungen. Sparen Sie sich die Provisionen der Lieferdienste.",
       icon: Utensils,
-      features: ["Digitale Speisekarte", "WhatsApp Bestell-Button", "Tischreservierung"],
       highlight: true
     },
     {
-      title: "Für Dienstleister",
-      description: "Werden Sie in Altomünster und Umgebung gefunden. Eine professionelle Darstellung Ihrer Leistungen schafft Vertrauen.",
+      title: "Dienstleistung",
+      description: "Zeigen Sie Expertise. Perfekt für Kanzleien, Praxen und Berater, die seriös und kompetent auftreten wollen.",
       icon: Briefcase,
-      features: ["Leistungsübersicht", "SEO Optimierung", "Terminbuchung (optional)"]
+      highlight: false
     }
   ];
 
   return (
-    <section id="services" className="py-20 bg-white">
-      <div className="container mx-auto px-4">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">Maßgeschneiderte Lösungen</h2>
-          <p className="text-lg text-slate-600 max-w-2xl mx-auto">
-            Egal ob Sie einen Dachdeckerbetrieb führen, eine Pizzeria betreiben oder als Freelancer arbeiten – ich habe das passende Paket.
-          </p>
+    <section id="services" className="py-32 bg-slate-950 relative border-t border-white/5">
+      <div className="container mx-auto px-4 relative z-10">
+        
+        <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
+            <div className="max-w-2xl">
+                <h2 className="text-3xl md:text-4xl font-bold text-white mb-4 tracking-tight">
+                    Lösungen für Ihr <span className="text-indigo-400">Business</span>
+                </h2>
+                <p className="text-slate-400 text-lg font-light">
+                    Keine Baukästen, keine Kompromisse. Handgefertigtes Webdesign mit Fokus auf Performance und Sichtbarkeit.
+                </p>
+            </div>
+            {/* Decorative line */}
+            <div className="hidden md:block h-px flex-1 bg-slate-800 ml-12 mb-2"></div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {services.map((service, index) => (
             <div 
               key={index} 
-              className={`relative p-8 rounded-2xl border transition-all duration-300 hover:-translate-y-1 hover:shadow-xl ${
+              className={`group relative p-8 rounded-xl transition-all duration-300 border flex flex-col h-full ${
                 service.highlight 
-                  ? 'bg-slate-900 text-white border-slate-800 ring-4 ring-blue-500/20 shadow-2xl scale-105 md:scale-110 z-10' 
-                  : 'bg-white text-slate-900 border-slate-200 hover:border-blue-200'
+                  ? 'bg-slate-900/80 border-indigo-500/30 shadow-[0_0_30px_rgba(99,102,241,0.1)]' 
+                  : 'bg-slate-900/40 border-slate-800 hover:border-slate-700'
               }`}
             >
-              {service.highlight && (
-                <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-blue-600 text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">
-                  Beliebt
-                </div>
-              )}
-              
-              <div className={`w-14 h-14 rounded-xl flex items-center justify-center mb-6 ${
-                service.highlight ? 'bg-blue-600/20 text-blue-400' : 'bg-blue-50 text-blue-600'
-              }`}>
-                <service.icon className="w-7 h-7" />
+              <div className="mb-6 inline-flex p-3 rounded-lg bg-slate-950 border border-slate-800 text-slate-200 group-hover:text-indigo-400 group-hover:border-indigo-500/30 transition-colors">
+                <service.icon className="w-6 h-6" strokeWidth={1.5} />
               </div>
 
-              <h3 className="text-xl font-bold mb-3">{service.title}</h3>
-              <p className={`mb-6 leading-relaxed ${service.highlight ? 'text-slate-300' : 'text-slate-600'}`}>
+              <h3 className="text-xl font-semibold text-white mb-3 tracking-tight group-hover:text-indigo-200 transition-colors">
+                {service.title}
+              </h3>
+              
+              <p className="text-slate-400 text-sm leading-relaxed mb-6 flex-grow">
                 {service.description}
               </p>
 
-              <ul className="space-y-3">
-                {service.features.map((feature, i) => (
-                  <li key={i} className="flex items-center gap-3 text-sm">
-                    {service.title === "Für Restaurants" && i === 1 ? (
-                       <MessageCircle className="w-4 h-4 text-green-400" />
-                    ) : (
-                       <div className={`w-1.5 h-1.5 rounded-full ${service.highlight ? 'bg-blue-400' : 'bg-blue-600'}`}></div>
-                    )}
-                    <span className={service.highlight ? 'text-slate-200' : 'text-slate-700'}>{feature}</span>
-                  </li>
-                ))}
-              </ul>
+              <div className="flex items-center text-xs font-bold text-indigo-400 uppercase tracking-wider opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300">
+                Details ansehen <ArrowRight className="w-3 h-3 ml-1" />
+              </div>
             </div>
           ))}
         </div>
 
-        {/* Technical Features Strip */}
-        <div className="mt-20 grid grid-cols-1 md:grid-cols-3 gap-8 border-t border-slate-200 pt-12">
-            <div className="flex flex-col items-center text-center p-4">
-                <Smartphone className="w-10 h-10 text-slate-400 mb-3" />
-                <h4 className="font-semibold text-slate-900">100% Responsive</h4>
-                <p className="text-sm text-slate-500 mt-1">Perfekt auf Handy, Tablet & PC.</p>
+        {/* Feature Grid - Technical Look */}
+        <div className="mt-24 grid grid-cols-1 md:grid-cols-3 divide-y md:divide-y-0 md:divide-x divide-slate-800 border-t border-b border-slate-800 bg-slate-900/20">
+            <div className="p-8 flex flex-col items-center text-center">
+                <Smartphone className="w-8 h-8 text-slate-500 mb-4" strokeWidth={1.5} />
+                <h4 className="font-semibold text-white mb-2">Responsive Design</h4>
+                <p className="text-sm text-slate-400">Perfekte Darstellung auf Smartphone, Tablet und Desktop.</p>
             </div>
-            <div className="flex flex-col items-center text-center p-4">
-                <Search className="w-10 h-10 text-slate-400 mb-3" />
-                <h4 className="font-semibold text-slate-900">Lokales SEO</h4>
-                <p className="text-sm text-slate-500 mt-1">Gefunden werden in Altomünster.</p>
+            <div className="p-8 flex flex-col items-center text-center">
+                <BarChart3 className="w-8 h-8 text-slate-500 mb-4" strokeWidth={1.5} />
+                <h4 className="font-semibold text-white mb-2">SEO Optimiert</h4>
+                <p className="text-sm text-slate-400">Technische Basis für beste Rankings bei Google.</p>
             </div>
-            <div className="flex flex-col items-center text-center p-4">
-                <div className="w-10 h-10 rounded-full border-2 border-slate-200 flex items-center justify-center font-bold text-slate-400 mb-3">€</div>
-                <h4 className="font-semibold text-slate-900">Fairer Preis</h4>
-                <p className="text-sm text-slate-500 mt-1">Festpreis ohne versteckte Kosten.</p>
+            <div className="p-8 flex flex-col items-center text-center">
+                <ShieldCheck className="w-8 h-8 text-slate-500 mb-4" strokeWidth={1.5} />
+                <h4 className="font-semibold text-white mb-2">DSGVO Konform</h4>
+                <p className="text-sm text-slate-400">Rechtssichere Einbindung von Cookies und Impressum.</p>
             </div>
         </div>
       </div>

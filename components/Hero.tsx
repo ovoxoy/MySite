@@ -1,58 +1,61 @@
 import React from 'react';
-import { ChevronRight, CheckCircle2 } from 'lucide-react';
+import { ArrowRight, CheckCircle2 } from 'lucide-react';
 
 const Hero: React.FC = () => {
   return (
-    <section className="relative bg-slate-900 text-white overflow-hidden pb-20 pt-32 lg:pt-40">
-      {/* Background Decorative Elements */}
-      <div className="absolute top-0 left-0 w-full h-full overflow-hidden opacity-20 z-0">
-         <div className="absolute -top-[200px] -right-[200px] w-[600px] h-[600px] bg-blue-600 rounded-full blur-3xl"></div>
-         <div className="absolute top-[20%] left-[10%] w-[300px] h-[300px] bg-emerald-500 rounded-full blur-3xl"></div>
+    <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden pt-20">
+      {/* Background - Technical Grid & Spotlight */}
+      <div className="absolute inset-0 bg-slate-950 z-0">
+        <div className="absolute inset-0 bg-grid-slate [mask-image:linear-gradient(to_bottom,transparent,black,transparent)]"></div>
+        {/* Subtle top spotlight */}
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[400px] bg-indigo-500/10 rounded-full blur-[120px] pointer-events-none"></div>
       </div>
 
       <div className="container mx-auto px-4 relative z-10">
-        <div className="max-w-3xl mx-auto text-center">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-sm font-medium mb-6">
-            <span className="relative flex h-2 w-2">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-              <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
-            </span>
-            Jetzt Web-Präsenz sichern
+        <div className="max-w-4xl mx-auto text-center flex flex-col items-center">
+          
+          {/* Badge - Minimalist */}
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-indigo-500/20 bg-indigo-500/10 text-indigo-300 text-xs font-semibold tracking-wide uppercase mb-8 animate-in fade-in slide-in-from-bottom-4 duration-700">
+            <span className="w-1.5 h-1.5 rounded-full bg-indigo-400 animate-pulse"></span>
+            Verfügbar für neue Projekte
           </div>
           
-          <h1 className="text-4xl md:text-6xl font-bold tracking-tight mb-6 leading-tight">
-            Webseiten, die <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-emerald-400">funktionieren</span>.
-            <br />
-            <span className="text-slate-400 text-3xl md:text-5xl">aus Altomünster.</span>
+          {/* Headline - Clear & Strong */}
+          <h1 className="text-5xl md:text-7xl font-bold tracking-tight mb-6 leading-[1.1] text-white animate-in fade-in slide-in-from-bottom-8 duration-1000 delay-100">
+            Ihr Partner für
+            <span className="block mt-2 text-transparent bg-clip-text bg-gradient-to-br from-white via-slate-200 to-slate-500 drop-shadow-lg pb-2">
+              Digitales Wachstum
+            </span>
           </h1>
           
-          <p className="text-lg md:text-xl text-slate-300 mb-8 max-w-2xl mx-auto">
-            Ich bin Maxim Klapf. Ich erstelle professionelle, kostengünstige Webseiten für Handwerker, Restaurants und lokale Unternehmen. Schnell, lokal und persönlich.
+          <p className="text-lg md:text-xl text-slate-400 mb-10 max-w-2xl mx-auto leading-relaxed font-light animate-in fade-in slide-in-from-bottom-8 duration-1000 delay-200">
+            Ich entwickle leistungsstarke Webseiten für Unternehmen, die Wert auf Qualität legen. 
+            Maßgeschneidert, schnell und optimiert für Ihren Umsatz.
           </p>
 
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-            <a href="#contact" className="w-full sm:w-auto px-8 py-3.5 bg-blue-600 hover:bg-blue-500 text-white font-semibold rounded-lg transition-all shadow-lg hover:shadow-blue-500/25 flex items-center justify-center gap-2">
-              Kostenloses Angebot
-              <ChevronRight className="w-4 h-4" />
+          {/* Buttons - Solid & Professional */}
+          <div className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto animate-in fade-in slide-in-from-bottom-8 duration-1000 delay-300">
+            <a href="#contact" className="group relative px-8 py-3.5 bg-white text-slate-950 font-semibold rounded-lg transition-all hover:bg-slate-200 flex items-center justify-center gap-2 shadow-[0_0_20px_rgba(255,255,255,0.1)]">
+              Kostenloses Angebot anfordern
+              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
             </a>
-            <a href="#services" className="w-full sm:w-auto px-8 py-3.5 bg-slate-800 hover:bg-slate-700 text-slate-200 font-semibold rounded-lg transition-all border border-slate-700 flex items-center justify-center">
+            <a href="#services" className="px-8 py-3.5 bg-slate-900 border border-slate-800 text-white font-medium rounded-lg hover:bg-slate-800 transition-colors flex items-center justify-center">
               Leistungen ansehen
             </a>
           </div>
 
-          <div className="mt-12 flex flex-wrap justify-center gap-6 text-sm text-slate-400">
-            <div className="flex items-center gap-2">
-              <CheckCircle2 className="w-5 h-5 text-emerald-500" />
-              <span>Optimiert für Mobile</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <CheckCircle2 className="w-5 h-5 text-emerald-500" />
-              <span>WhatsApp Integration</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <CheckCircle2 className="w-5 h-5 text-emerald-500" />
-              <span>SEO Basis-Setup</span>
-            </div>
+          {/* Trust Indicators - Clean List */}
+          <div className="mt-16 pt-8 border-t border-white/5 flex flex-wrap justify-center gap-x-8 gap-y-4 animate-in fade-in duration-1000 delay-500">
+            {[
+              "Express Umsetzung", 
+              "Persönlicher Ansprechpartner", 
+              "Faires Festpreis-Angebot"
+            ].map((text, i) => (
+              <div key={i} className="flex items-center gap-2 text-slate-500 text-sm font-medium">
+                <CheckCircle2 className="w-4 h-4 text-indigo-500" />
+                <span>{text}</span>
+              </div>
+            ))}
           </div>
         </div>
       </div>
