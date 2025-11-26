@@ -1,23 +1,26 @@
 import React from 'react';
 import { Hammer, Utensils, Briefcase, Smartphone, BarChart3, ShieldCheck, ArrowRight } from 'lucide-react';
+import { useLanguage } from '../LanguageContext';
 
 const Services: React.FC = () => {
+  const { t } = useLanguage();
+
   const services = [
     {
-      title: "Handwerk & Bau",
-      description: "Überzeugen Sie Bauherren mit professionellen Referenzen. Digitale Anfrageformulare reduzieren Ihren Büroaufwand.",
+      title: t.services.items[0].title,
+      description: t.services.items[0].desc,
       icon: Hammer,
       highlight: false
     },
     {
-      title: "Gastronomie",
-      description: "Moderne Speisekarten und direkte WhatsApp-Bestellungen. Sparen Sie sich die Provisionen der Lieferdienste.",
+      title: t.services.items[1].title,
+      description: t.services.items[1].desc,
       icon: Utensils,
       highlight: true
     },
     {
-      title: "Dienstleistung",
-      description: "Zeigen Sie Expertise. Perfekt für Kanzleien, Praxen und Berater, die seriös und kompetent auftreten wollen.",
+      title: t.services.items[2].title,
+      description: t.services.items[2].desc,
       icon: Briefcase,
       highlight: false
     }
@@ -30,10 +33,10 @@ const Services: React.FC = () => {
         <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
             <div className="max-w-2xl">
                 <h2 className="text-3xl md:text-4xl font-bold text-white mb-4 tracking-tight">
-                    Lösungen für Ihr <span className="text-indigo-400">Business</span>
+                    {t.services.headline} <span className="text-indigo-400">{t.services.headlineHighlight}</span>
                 </h2>
                 <p className="text-slate-400 text-lg font-light">
-                    Keine Baukästen, keine Kompromisse. Handgefertigtes Webdesign mit Fokus auf Performance und Sichtbarkeit.
+                    {t.services.subheadline}
                 </p>
             </div>
             {/* Decorative line */}
@@ -63,28 +66,28 @@ const Services: React.FC = () => {
               </p>
 
               <div className="flex items-center text-xs font-bold text-indigo-400 uppercase tracking-wider opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300">
-                Details ansehen <ArrowRight className="w-3 h-3 ml-1" />
+                {t.services.more} <ArrowRight className="w-3 h-3 ml-1" />
               </div>
             </div>
           ))}
         </div>
 
-        {/* Feature Grid - Technical Look */}
+        {/* Feature Grid - Simple explanations */}
         <div className="mt-24 grid grid-cols-1 md:grid-cols-3 divide-y md:divide-y-0 md:divide-x divide-slate-800 border-t border-b border-slate-800 bg-slate-900/20">
             <div className="p-8 flex flex-col items-center text-center">
                 <Smartphone className="w-8 h-8 text-slate-500 mb-4" strokeWidth={1.5} />
-                <h4 className="font-semibold text-white mb-2">Responsive Design</h4>
-                <p className="text-sm text-slate-400">Perfekte Darstellung auf Smartphone, Tablet und Desktop.</p>
+                <h4 className="font-semibold text-white mb-2">{t.services.features.responsive.title}</h4>
+                <p className="text-sm text-slate-400">{t.services.features.responsive.desc}</p>
             </div>
             <div className="p-8 flex flex-col items-center text-center">
                 <BarChart3 className="w-8 h-8 text-slate-500 mb-4" strokeWidth={1.5} />
-                <h4 className="font-semibold text-white mb-2">SEO Optimiert</h4>
-                <p className="text-sm text-slate-400">Technische Basis für beste Rankings bei Google.</p>
+                <h4 className="font-semibold text-white mb-2">{t.services.features.seo.title}</h4>
+                <p className="text-sm text-slate-400">{t.services.features.seo.desc}</p>
             </div>
             <div className="p-8 flex flex-col items-center text-center">
                 <ShieldCheck className="w-8 h-8 text-slate-500 mb-4" strokeWidth={1.5} />
-                <h4 className="font-semibold text-white mb-2">DSGVO Konform</h4>
-                <p className="text-sm text-slate-400">Rechtssichere Einbindung von Cookies und Impressum.</p>
+                <h4 className="font-semibold text-white mb-2">{t.services.features.legal.title}</h4>
+                <p className="text-sm text-slate-400">{t.services.features.legal.desc}</p>
             </div>
         </div>
       </div>
