@@ -9,7 +9,7 @@ const Hero: React.FC = () => {
     <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden pt-20">
       {/* Background - Technical Grid & Spotlight */}
       <div className="absolute inset-0 bg-slate-950 z-0">
-        <div className="absolute inset-0 bg-grid-slate [mask-image:linear-gradient(to_bottom,transparent,black,transparent)]"></div>
+        <div className="absolute inset-0 bg-grid-slate [mask-image:linear-gradient(to_bottom,transparent_0%,black_30%,black_70%,transparent_100%)]"></div>
         {/* Subtle top spotlight */}
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[400px] bg-indigo-500/10 rounded-full blur-[120px] pointer-events-none"></div>
       </div>

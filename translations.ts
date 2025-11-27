@@ -53,7 +53,11 @@ export const translations = {
         emailInput: "E-Mail Adresse",
         message: "Worum geht's?",
         submit: "Nachricht absenden",
-        response: "Ich melde mich in der Regel innerhalb von 24 Stunden."
+        sending: "Sende...",
+        response: "Ich melde mich in der Regel innerhalb von 24 Stunden.",
+        successTitle: "Nachricht gesendet!",
+        successMessage: "Vielen Dank für Ihre Anfrage. Ich melde mich in Kürze bei Ihnen.",
+        errorMessage: "Ups, etwas ist schiefgelaufen. Bitte versuchen Sie es erneut oder schreiben Sie mir direkt eine Mail."
       },
       placeholders: {
         name: "Max Mustermann",
@@ -122,7 +126,11 @@ export const translations = {
         emailInput: "Email Address",
         message: "What's it about?",
         submit: "Send message",
-        response: "I usually reply within 24 hours."
+        sending: "Sending...",
+        response: "I usually reply within 24 hours.",
+        successTitle: "Message sent!",
+        successMessage: "Thank you for your inquiry. I will get back to you shortly.",
+        errorMessage: "Oops, something went wrong. Please try again or email me directly."
       },
       placeholders: {
         name: "John Doe",

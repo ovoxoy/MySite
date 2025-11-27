@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Phone, Mail, MapPin, ArrowRight, MessageCircle } from 'lucide-react';
+import { Phone, Mail, MapPin, ArrowRight, MessageCircle, Loader2, CheckCircle2, AlertCircle } from 'lucide-react';
 import { useLanguage } from '../LanguageContext';
 
 const Contact: React.FC = () => {
@@ -12,6 +12,8 @@ const Contact: React.FC = () => {
     message: ''
   });
 
+  const [status, setStatus] = useState<'IDLE' | 'SUBMITTING' | 'SUCCESS' | 'ERROR'>('IDLE');
+
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setFormData({
       ...formData,
@@ -19,20 +21,28 @@ const Contact: React.FC = () => {
     });
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    setStatus('SUBMITTING');
     
-    // Construct the email body
-    const subject = `Neue Anfrage über Webseite von ${formData.name || 'Interessent'}`;
-    const body = `Name: ${formData.name}
-Telefon: ${formData.phone}
-Email: ${formData.email}
+    try {
+      const response = await fetch("https://formspree.io/f/mdkrevbw", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(formData)
+      });
 
-Nachricht:
-${formData.message}`;
-
-    // Open default mail client
-    window.location.href = `mailto:maxim.klapf@web.de?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+      if (response.ok) {
+        setStatus('SUCCESS');
+        setFormData({ name: '', phone: '', email: '', message: '' });
+      } else {
+        setStatus('ERROR');
+      }
+    } catch (error) {
+      setStatus('ERROR');
+    }
   };
 
   return (
@@ -92,8 +102,26 @@ ${formData.message}`;
             </div>
 
             {/* Right Column: Clean Form */}
-            <div className="bg-slate-900/30 p-8 rounded-2xl border border-slate-800">
-                <form onSubmit={handleSubmit} className="space-y-5">
+            <div className="bg-slate-900/30 p-8 rounded-2xl border border-slate-800 relative overflow-hidden">
+                
+                {/* Success Overlay */}
+                {status === 'SUCCESS' ? (
+                  <div className="absolute inset-0 z-10 flex flex-col items-center justify-center bg-slate-900/90 backdrop-blur-sm p-8 text-center animate-in fade-in duration-500">
+                    <div className="w-16 h-16 bg-green-500/20 rounded-full flex items-center justify-center mb-6">
+                      <CheckCircle2 className="w-8 h-8 text-green-500" />
+                    </div>
+                    <h3 className="text-2xl font-bold text-white mb-2">{t.contact.labels.successTitle}</h3>
+                    <p className="text-slate-400">{t.contact.labels.successMessage}</p>
+                    <button 
+                      onClick={() => setStatus('IDLE')}
+                      className="mt-8 px-6 py-2 bg-slate-800 text-white rounded-lg hover:bg-slate-700 transition-colors text-sm font-medium"
+                    >
+                      Neue Nachricht senden
+                    </button>
+                  </div>
+                ) : null}
+
+                <form onSubmit={handleSubmit} className={`space-y-5 transition-opacity duration-300 ${status === 'SUCCESS' ? 'opacity-0' : 'opacity-100'}`}>
                     <div className="grid grid-cols-2 gap-5">
                         <div className="space-y-2">
                             <label className="text-xs font-semibold text-slate-500 uppercase tracking-wider">{t.contact.labels.name}</label>
@@ -146,9 +174,29 @@ ${formData.message}`;
                         ></textarea>
                     </div>
 
-                    <button type="submit" className="w-full bg-indigo-600 hover:bg-indigo-500 text-white font-medium py-3.5 rounded-lg transition-colors flex items-center justify-center gap-2 group">
-                        {t.contact.labels.submit}
-                        <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                    {status === 'ERROR' && (
+                      <div className="p-3 bg-red-500/10 border border-red-500/20 rounded-lg flex items-center gap-3 text-red-400 text-sm">
+                        <AlertCircle className="w-4 h-4 shrink-0" />
+                        {t.contact.labels.errorMessage}
+                      </div>
+                    )}
+
+                    <button 
+                      type="submit" 
+                      disabled={status === 'SUBMITTING'}
+                      className="w-full bg-indigo-600 hover:bg-indigo-500 disabled:bg-indigo-600/50 disabled:cursor-not-allowed text-white font-medium py-3.5 rounded-lg transition-colors flex items-center justify-center gap-2 group"
+                    >
+                        {status === 'SUBMITTING' ? (
+                          <>
+                            <Loader2 className="w-4 h-4 animate-spin" />
+                            {t.contact.labels.sending}
+                          </>
+                        ) : (
+                          <>
+                            {t.contact.labels.submit}
+                            <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                          </>
+                        )}
                     </button>
                     
                     <p className="text-xs text-slate-600 text-center pt-2">
