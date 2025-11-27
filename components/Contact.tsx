@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Phone, Mail, MapPin, ArrowRight, MessageCircle, Loader2, CheckCircle2, AlertCircle } from 'lucide-react';
+import { Mail, MapPin, ArrowRight, MessageCircle, Loader2, CheckCircle2, AlertCircle } from 'lucide-react';
 import { useLanguage } from '../LanguageContext';
 
 const Contact: React.FC = () => {

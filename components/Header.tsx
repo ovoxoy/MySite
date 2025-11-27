@@ -33,9 +33,11 @@ const Header: React.FC = () => {
       <div className="container mx-auto px-4 flex justify-between items-center">
         {/* Logo */}
         <div className="flex items-center gap-3 cursor-pointer select-none">
-          <div className="w-10 h-10 bg-gradient-to-br from-indigo-800 to-blue-900 rounded flex items-center justify-center shadow-lg shadow-sky-500/20">
-            <span className="text-white font-bold font-serif text-lg leading-none">MK</span>
-          </div>
+          <img 
+            src="/favicon.png" 
+            alt="Maxim Klapf Logo" 
+            className="w-10 h-10 rounded-full shadow-lg shadow-sky-500/20 object-cover"
+          />
           <div className="text-white font-semibold text-lg tracking-tight">
             Maxim Klapf
           </div>

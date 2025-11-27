@@ -4,6 +4,15 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     
+    <!-- WWW Redirect Script (SEO Consistency) -->
+    <script>
+      // Wenn die Domain exakt 'klapf.dev' ist (ohne www), leite auf 'www.klapf.dev' um.
+      // Dies verhindert Duplicate Content und stärkt das Ranking.
+      if (window.location.hostname === 'klapf.dev') {
+        window.location.replace('https://www.klapf.dev' + window.location.pathname + window.location.search);
+      }
+    </script>
+    
     <!-- Primary SEO Meta Tags -->
     <title>Maxim Klapf | Webdesign Altomünster - Webseiten für Handwerk & Gastro</title>
     <meta name="title" content="Maxim Klapf | Webdesign Altomünster - Webseiten für Handwerk & Gastro">
@@ -26,12 +35,12 @@
     -->
 
       <!-- Favicon -->
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
-    <link rel="canonical" href="https://klapf.dev/" />
+    <link rel="icon" type="image/svg+xml" sizes="any" href="/favicon.png">
+    <link rel="canonical" href="https://www.klapf.dev/" />
 
     <!-- Open Graph / Facebook / WhatsApp Preview -->
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://klapf.dev/" />
+    <meta property="og:url" content="https://www.klapf.dev/" />
     <meta property="og:title" content="Maxim Klapf | Webdesign Altomünster" />
     <meta property="og:description" content="Moderne Webseiten für Handwerk & Gastronomie aus der Region. Schnell, persönlich & kostengünstig." />
     <meta property="og:image" content="https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?q=80&w=1200&auto=format&fit=crop" />
@@ -52,7 +61,7 @@
       "@type": "LocalBusiness",
       "name": "Maxim Klapf Webdesign",
       "image": "https://images.unsplash.com/photo-1467232004584-a241de8bcf5d",
-      "url": "https://klapf.dev",
+      "url": "https://www.klapf.dev",
       "telephone": "+49 173 6398022",
       "email": "maxim.klapf@web.de",
       "address": {
