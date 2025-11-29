@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Mail, MapPin, ArrowRight, MessageCircle, Loader2, CheckCircle2, AlertCircle } from 'lucide-react';
+import { Mail, MapPin, ArrowRight, MessageCircle, Loader2, CheckCircle2, AlertCircle, Lock } from 'lucide-react';
 import { useLanguage } from '../LanguageContext';
 
 const Contact: React.FC = () => {
@@ -181,25 +181,33 @@ const Contact: React.FC = () => {
                       </div>
                     )}
 
-                    <button 
-                      type="submit" 
-                      disabled={status === 'SUBMITTING'}
-                      className="w-full bg-indigo-600 hover:bg-indigo-500 disabled:bg-indigo-600/50 disabled:cursor-not-allowed text-white font-medium py-3.5 rounded-lg transition-colors flex items-center justify-center gap-2 group"
-                    >
-                        {status === 'SUBMITTING' ? (
-                          <>
-                            <Loader2 className="w-4 h-4 animate-spin" />
-                            {t.contact.labels.sending}
-                          </>
-                        ) : (
-                          <>
-                            {t.contact.labels.submit}
-                            <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                          </>
-                        )}
-                    </button>
+                    <div className="space-y-4">
+                      <button 
+                        type="submit" 
+                        disabled={status === 'SUBMITTING'}
+                        className="w-full bg-indigo-600 hover:bg-indigo-500 disabled:bg-indigo-600/50 disabled:cursor-not-allowed text-white font-medium py-3.5 rounded-lg transition-colors flex items-center justify-center gap-2 group"
+                      >
+                          {status === 'SUBMITTING' ? (
+                            <>
+                              <Loader2 className="w-4 h-4 animate-spin" />
+                              {t.contact.labels.sending}
+                            </>
+                          ) : (
+                            <>
+                              {t.contact.labels.submit}
+                              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                            </>
+                          )}
+                      </button>
+                      
+                      {/* DSGVO Hint */}
+                      <p className="text-[10px] text-slate-500 text-center flex items-center justify-center gap-1.5 opacity-60">
+                         <Lock className="w-3 h-3" />
+                         {t.contact.labels.privacyHint}
+                      </p>
+                    </div>
                     
-                    <p className="text-xs text-slate-600 text-center pt-2">
+                    <p className="text-xs text-slate-600 text-center">
                         {t.contact.labels.response}
                     </p>
                 </form>

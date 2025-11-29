@@ -1,7 +1,12 @@
 import React from 'react';
 import { useLanguage } from '../LanguageContext';
+import { PageView } from '../types';
 
-const Footer: React.FC = () => {
+interface FooterProps {
+  onNavigate: (view: PageView) => void;
+}
+
+const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
   const currentYear = new Date().getFullYear();
   const { t } = useLanguage();
 
@@ -15,9 +20,19 @@ const Footer: React.FC = () => {
           </div>
           
           <div className="flex gap-6 text-sm font-medium">
-            <a href="#" className="hover:text-white transition-colors">{t.footer.imprint}</a>
-            <a href="#" className="hover:text-white transition-colors">{t.footer.privacy}</a>
-            <a href="#" className="hover:text-white transition-colors">{t.footer.terms}</a>
+            <button 
+              onClick={() => onNavigate('imprint')} 
+              className="hover:text-white transition-colors"
+            >
+              {t.footer.imprint}
+            </button>
+            <button 
+              onClick={() => onNavigate('privacy')} 
+              className="hover:text-white transition-colors"
+            >
+              {t.footer.privacy}
+            </button>
+            <span className="opacity-50 cursor-not-allowed">{t.footer.terms}</span>
           </div>
         </div>
         
