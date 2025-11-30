@@ -31,7 +31,7 @@ const Hero: React.FC = () => {
             </span>
           </h1>
           
-          <p className="text-lg md:text-xl text-slate-400 mb-10 max-w-2xl mx-auto leading-relaxed font-light animate-in fade-in slide-in-from-bottom-8 duration-1000 delay-200">
+          <p className="text-lg md:text-xl text-slate-400 mb-10 max-w-2xl mx-auto leading-relaxed font-light whitespace-pre-line animate-in fade-in slide-in-from-bottom-8 duration-1000 delay-200">
             {t.hero.subheadline}
           </p>
 

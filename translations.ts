@@ -1,3 +1,4 @@
+
 export const translations = {
   de: {
     nav: {
@@ -10,7 +11,7 @@ export const translations = {
       badge: "Webdesign aus Altomünster",
       headlineStart: "Webseiten,",
       headlineHighlight: "die funktionieren.",
-      subheadline: "Ich helfe Handwerkern, Gastronomen und kleinen Unternehmen in der Region, online sichtbar zu werden. Ohne Fachchinesisch, dafür mit modernem Design und fairer Preisgestaltung.",
+      subheadline: "Ich helfe Handwerkern, Gastronomen und kleinen Unternehmen in der Region, online sichtbar zu werden.\nVerständliche Beratung mit modernem Design und fairer Preisgestaltung.",
       ctaPrimary: "Unverbindlich anfragen",
       ctaSecondary: "Was ich anbiete",
       trust: ["Schnelle Umsetzung", "Persönlicher Kontakt", "Alles aus einer Hand"]
@@ -34,15 +35,27 @@ export const translations = {
         }
       ],
       more: "Mehr erfahren",
+      examplesLabel: "Live-Referenz ansehen:",
+      demoHorse: "🐴 Pferdephysiotherapie",
+      requestDemo: "Jetzt anfragen",
       features: {
-        responsive: { title: "Sieht überall gut aus", desc: "Egal ob iPhone, Tablet oder PC – Ihre Seite passt sich immer perfekt an." },
-        seo: { title: "Wird gefunden", desc: "Sauberer Code, damit Google Ihre Seite liebt und Kunden Sie finden." },
-        legal: { title: "Rechtssichere Umsetzung", desc: "Inklusive Impressum, Datenschutz und Cookie-Banner." }
-      },
+        responsive: {
+          title: "Für alle Geräte",
+          desc: "Perfekte Darstellung auf Smartphone, Tablet und PC."
+        },
+        seo: {
+          title: "Google-Optimiert",
+          desc: "Sauberer Code für bessere Auffindbarkeit."
+        },
+        legal: {
+          title: "Rechtssicher",
+          desc: "Datenschutz & Impressum nach aktuellen Standards."
+        }
+      }
     },
     contact: {
-      headline: "Fragen kostet",
-      headlineHighlight: "nichts.",
+      headline: "Jetzt kostenlos",
+      headlineHighlight: "anfragen.",
       subheadline: "Egal ob Sie schon eine konkrete Idee haben oder erst mal nur wissen wollen, was möglich ist. Schreiben Sie mir einfach ganz unverbindlich.",
       labels: {
         email: "E-Mail",
@@ -54,15 +67,15 @@ export const translations = {
         message: "Worum geht's?",
         submit: "Nachricht absenden",
         sending: "Sende...",
-        response: "Ich melde mich in der Regel innerhalb von 24 Stunden.",
+        response: "Ich melde mich innerhalb von 12 Stunden.",
         successTitle: "Nachricht gesendet!",
         successMessage: "Vielen Dank für Ihre Anfrage. Ich melde mich in Kürze bei Ihnen.",
-        errorMessage: "Ups, etwas ist schiefgelaufen. Bitte versuchen Sie es erneut oder schreiben Sie mir direkt eine Mail.",
+        errorMessage: "Ups, etwas ist schiefgelaufen. Bitte versuchen Sie es erneut oder schreiben Sie mir direkt eine Mail an maxim.klapf@web.de .",
         privacyHint: "Mit dem Absenden erkläre ich mich mit der Verarbeitung meiner Daten einverstanden."
       },
       placeholders: {
         name: "Max Mustermann",
-        message: "Kurze Beschreibung Ihres Anliegens..."
+        message: "Kurze Beschreibung Ihrer Wunschwebseite"
       }
     },
     footer: {
@@ -126,7 +139,7 @@ export const translations = {
       badge: "Web Design from Altomünster",
       headlineStart: "Websites that simply",
       headlineHighlight: "work.",
-      subheadline: "I help craftsmen, restaurants, and small businesses in the region to get visible online. No tech-jargon, just modern design and fair pricing.",
+      subheadline: "I help craftsmen, restaurants, and small businesses in the region to get visible online.\nNo tech-jargon, just modern design and fair pricing.",
       ctaPrimary: "Get a free quote",
       ctaSecondary: "What I offer",
       trust: ["Fast implementation", "Personal contact", "Everything from one source"]
@@ -141,7 +154,7 @@ export const translations = {
           desc: "Showcase your best projects in a sleek gallery. With a simple contact form, inquiries land directly on your mobile – no more paperwork chaos."
         },
         {
-          title: "Gastronomie",
+          title: "Gastronomy",
           desc: "Menu via QR code and orders received directly via WhatsApp. Save yourself the high fees of delivery platforms."
         },
         {
@@ -150,11 +163,23 @@ export const translations = {
         }
       ],
       more: "Learn more",
+      examplesLabel: "View live reference:",
+      demoHorse: "🐴 Horse Physiotherapy",
+      requestDemo: "Request now",
       features: {
-        responsive: { title: "Looks good everywhere", desc: "Whether iPhone, tablet or PC – your site always adapts perfectly." },
-        seo: { title: "Gets found", desc: "Clean code so Google loves your site and customers find you." },
-        legal: { title: "Legally compliant", desc: "Including imprint, data protection, and cookie banner. Everything correct." }
-      },
+        responsive: {
+          title: "For all devices",
+          desc: "Perfect display on smartphone, tablet and PC."
+        },
+        seo: {
+          title: "Google Optimized",
+          desc: "Clean code for better visibility."
+        },
+        legal: {
+          title: "Legally Compliant",
+          desc: "Privacy & Imprint according to current standards."
+        }
+      }
     },
     contact: {
       headline: "Asking costs",
@@ -203,7 +228,7 @@ export const translations = {
         smallBusiness: "According to § 19 UStG no sales tax is charged.",
         contentResp: "Responsible for content according to § 55 Abs. 2 RStV",
         disputeTitle: "EU Dispute Resolution",
-        disputeText: "The European Commission provides a platform for online dispute resolution (ODR): https://ec.europa.eu/consumers/odr/. Our email address can be found above in the Legal Notice.",
+        disputeText: "The European Commission provides a platform for online dispute resolution (ODR): https://ec.europa.eu/consumers/odr/. Unsere E-Mail-Adresse finden Sie oben im Impressum.",
         liabilityTitle: "Consumer Dispute Resolution",
         liabilityText: "We are not willing or obliged to participate in dispute resolution proceedings before a consumer arbitration board."
       },
@@ -226,7 +251,7 @@ export const translations = {
     },
     cookie: {
       title: "Privacy Settings",
-      text: "We use cookies and external services (like Google Analytics/Ads) to improve our offer. You can decide whether you want to allow this.",
+      text: "We use cookies and external services (like Google Analytics/Ads), to improve our offer. You can decide whether you want to allow this.",
       accept: "Accept all",
       decline: "Necessary only"
     }
