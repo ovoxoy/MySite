@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useLanguage } from '../LanguageContext';
 import { ShieldCheck, X } from 'lucide-react';
 
-const GOOGLE_TAG_ID = 'G-XXXXXXXXXX'; // Hier später deine ID eintragen (z.B. AW-12345 oder G-12345)
+const GOOGLE_TAG_ID = 'G-M9JRS109CN';
 
 const CookieBanner: React.FC = () => {
   const { t } = useLanguage();
