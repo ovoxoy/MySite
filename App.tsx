@@ -11,7 +11,18 @@ import type { PageView } from './types';
 
 // Wrapper component to handle language-dependent side effects
 const AppContent: React.FC = () => {
-  const [currentView, setCurrentView] = useState<PageView>('home');
+  // Initialize view based on URL query parameter to support direct linking/refresh
+  const [currentView, setCurrentView] = useState<PageView>(() => {
+    if (typeof window !== 'undefined') {
+      const params = new URLSearchParams(window.location.search);
+      const page = params.get('p');
+      if (page === 'imprint' || page === 'privacy') {
+        return page;
+      }
+    }
+    return 'home';
+  });
+
   const { t, language } = useLanguage();
 
   // Handle Browser History (Back Button)
@@ -20,7 +31,14 @@ const AppContent: React.FC = () => {
       if (event.state && event.state.view) {
         setCurrentView(event.state.view);
       } else {
-        setCurrentView('home');
+        // Fallback checks URL if state is null
+        const params = new URLSearchParams(window.location.search);
+        const page = params.get('p');
+        if (page === 'imprint' || page === 'privacy') {
+          setCurrentView(page);
+        } else {
+          setCurrentView('home');
+        }
       }
     };
 
