@@ -7,7 +7,6 @@
     <!-- WWW Redirect Script (SEO Consistency) -->
     <script>
       // Wenn die Domain exakt 'klapf.dev' ist (ohne www), leite auf 'www.klapf.dev' um.
-      // Dies verhindert Duplicate Content und stärkt das Ranking.
       if (window.location.hostname === 'klapf.dev') {
         window.location.replace('https://www.klapf.dev' + window.location.pathname + window.location.search);
       }
@@ -21,15 +20,26 @@
     <meta name="author" content="Maxim Klapf" />
     <meta name="robots" content="index, follow" />
 
-    <!-- Google Ads / Analytics Tag ist jetzt im CookieBanner dynamisch integriert -->
-
     <!-- Favicons & App Icons (Optimized for Google Search) -->
     <link rel="manifest" href="/manifest.json">
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png?v=2">
-    <link rel="icon" type="image/png" sizes="192x192" href="/favicon.png?v=2">
-    <link rel="apple-touch-icon" href="/favicon.png?v=2">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png?v=3">
+    <link rel="icon" type="image/png" sizes="192x192" href="/favicon.png?v=3">
+    <link rel="apple-touch-icon" href="/favicon.png?v=3">
     
     <link rel="canonical" href="https://www.klapf.dev/" />
+
+    <!-- Performance Optimization: Preconnect & Prefetch -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdn.tailwindcss.com">
+    <link rel="dns-prefetch" href="https://formspree.io"> <!-- Speed up form submission -->
+    
+    <!-- Non-blocking Font Loading (Fix for Critical Request Chains) -->
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" media="print" onload="this.media='all'">
+    <noscript>
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap">
+    </noscript>
 
     <!-- Open Graph / Facebook / WhatsApp Preview -->
     <meta property="og:type" content="website" />
@@ -87,8 +97,6 @@
     </script>
 
     <style>
-      @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap');
-      
       body {
         font-family: 'Inter', sans-serif;
         background-color: #020617;
@@ -186,11 +194,13 @@
   <script type="importmap">
 {
   "imports": {
-    "react/": "https://aistudiocdn.com/react@^19.2.0/",
-    "react": "https://aistudiocdn.com/react@^19.2.0",
+    "react": "https://esm.sh/react@18.3.1",
+    "react/jsx-runtime": "https://esm.sh/react@18.3.1/jsx-runtime",
+    "react-dom/client": "https://esm.sh/react-dom@18.3.1/client",
+    "react-dom": "https://esm.sh/react-dom@18.3.1",
+    "lucide-react": "https://esm.sh/lucide-react@0.344.0?deps=react@18.3.1",
     "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/",
-    "react-dom": "https://aistudiocdn.com/react-dom@^19.2.0",
-    "lucide-react": "https://aistudiocdn.com/lucide-react@^0.554.0"
+    "react/": "https://aistudiocdn.com/react@^19.2.0/"
   }
 }
 </script>

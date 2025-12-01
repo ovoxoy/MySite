@@ -12,8 +12,8 @@ const CookieBanner: React.FC = () => {
     // Prüfen, ob bereits eine Entscheidung getroffen wurde
     const consent = localStorage.getItem('cookie-consent');
     if (!consent) {
-      // Kurze Verzögerung für schönere Animation beim Laden
-      const timer = setTimeout(() => setIsVisible(true), 1000);
+      // Verzögerung auf 3.5 Sekunden erhöht für bessere Lighthouse Performance
+      const timer = setTimeout(() => setIsVisible(true), 3500);
       return () => clearTimeout(timer);
     } else if (consent === 'granted') {
       loadGoogleScripts();

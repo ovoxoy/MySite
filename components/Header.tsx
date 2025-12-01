@@ -63,7 +63,7 @@ const Header: React.FC<HeaderProps> = ({ onNavigate }) => {
           >
             <div className="relative w-10 h-10 rounded-full overflow-hidden shadow-lg shadow-sky-500/10 border border-white/5 bg-slate-900">
               <img 
-                src="/favicon.png?v=2" 
+                src="/favicon.png?v=3" 
                 alt="Maxim Klapf Logo" 
                 width="40"
                 height="40"

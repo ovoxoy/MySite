@@ -69,7 +69,7 @@ const Contact: React.FC = () => {
                             <Mail className="w-5 h-5" />
                         </div>
                         <div>
-                            <h4 className="text-white font-medium mb-1">{t.contact.labels.email}</h4>
+                            <h3 className="text-white font-medium mb-1">{t.contact.labels.email}</h3>
                             <a href="mailto:maxim.klapf@web.de" className="text-slate-400 hover:text-white transition-colors block">maxim.klapf@web.de</a>
                         </div>
                     </div>
@@ -79,7 +79,7 @@ const Contact: React.FC = () => {
                             <MessageCircle className="w-5 h-5" />
                         </div>
                         <div>
-                            <h4 className="text-white font-medium mb-1">{t.contact.labels.phone}</h4>
+                            <h3 className="text-white font-medium mb-1">{t.contact.labels.phone}</h3>
                             <a 
                                 href="https://api.whatsapp.com/send?phone=491736398022" 
                                 target="_blank" 
@@ -96,7 +96,7 @@ const Contact: React.FC = () => {
                             <MapPin className="w-5 h-5" />
                         </div>
                         <div>
-                            <h4 className="text-white font-medium mb-1">{t.contact.labels.office}</h4>
+                            <h3 className="text-white font-medium mb-1">{t.contact.labels.office}</h3>
                             <p className="text-slate-400">Altomünster, Bayern</p>
                         </div>
                     </div>
@@ -104,7 +104,7 @@ const Contact: React.FC = () => {
             </div>
 
             {/* Right Column: Clean Form */}
-            <div className="bg-slate-900/30 p-8 rounded-2xl border border-slate-800 relative overflow-hidden shadow-xl">
+            <div className="bg-slate-900/30 p-8 rounded-2xl border border-slate-800 relative overflow-hidden shadow-xl" aria-live="polite">
                 
                 {/* Success Overlay */}
                 {status === 'SUCCESS' ? (
@@ -184,7 +184,7 @@ const Contact: React.FC = () => {
                     </div>
 
                     {status === 'ERROR' && (
-                      <div className="p-3 bg-red-500/10 border border-red-500/20 rounded-lg flex items-start gap-3 text-red-400 text-sm animate-in fade-in slide-in-from-top-2">
+                      <div className="p-3 bg-red-500/10 border border-red-500/20 rounded-lg flex items-start gap-3 text-red-400 text-sm animate-in fade-in slide-in-from-top-2" role="alert">
                         <AlertCircle className="w-5 h-5 shrink-0 mt-0.5" />
                         <span className="leading-snug">{t.contact.labels.errorMessage}</span>
                       </div>

@@ -1,13 +1,16 @@
-import React, { useState, useEffect } from 'react';
+
+import React, { useState, useEffect, Suspense, lazy } from 'react';
 import { LanguageProvider, useLanguage } from './LanguageContext';
 import Header from './components/Header';
 import Hero from './components/Hero';
 import Services from './components/Services';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
-import Legal from './components/Legal';
-import CookieBanner from './components/CookieBanner';
 import type { PageView } from './types';
+
+// Lazy load non-critical components to reduce initial bundle size
+const Legal = lazy(() => import('./components/Legal'));
+const CookieBanner = lazy(() => import('./components/CookieBanner'));
 
 // Wrapper component to handle language-dependent side effects
 const AppContent: React.FC = () => {
@@ -91,15 +94,24 @@ const AppContent: React.FC = () => {
             <Contact />
           </>
         ) : (
-          <Legal 
-            page={currentView} 
-            onBack={() => handleNavigate('home')} 
-          />
+          <Suspense fallback={
+            <div className="min-h-screen bg-slate-950 flex items-center justify-center pt-20">
+              <div className="w-8 h-8 border-4 border-indigo-500/30 border-t-indigo-500 rounded-full animate-spin"></div>
+            </div>
+          }>
+            <Legal 
+              page={currentView} 
+              onBack={() => handleNavigate('home')} 
+            />
+          </Suspense>
         )}
       </main>
       
       <Footer onNavigate={handleNavigate} />
-      <CookieBanner />
+      
+      <Suspense fallback={null}>
+        <CookieBanner />
+      </Suspense>
     </div>
   );
 };

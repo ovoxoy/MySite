@@ -137,8 +137,8 @@ export const translations = {
     },
     hero: {
       badge: "Web Design from Altomünster",
-      headlineStart: "Websites that simply",
-      headlineHighlight: "work.",
+      headlineStart: "Websites",
+      headlineHighlight: "that simply work.",
       subheadline: "I help craftsmen, restaurants, and small businesses in the region to get visible online.\nNo tech-jargon, just modern design and fair pricing.",
       ctaPrimary: "Get a free quote",
       ctaSecondary: "What I offer",

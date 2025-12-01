@@ -18,25 +18,25 @@ const Hero: React.FC = () => {
         <div className="max-w-4xl mx-auto text-center flex flex-col items-center">
           
           {/* Badge - Local & Friendly */}
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-indigo-500/20 bg-indigo-500/10 text-indigo-300 text-xs font-semibold tracking-wide uppercase mb-8 animate-in fade-in slide-in-from-bottom-4 duration-700">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-indigo-500/20 bg-indigo-500/10 text-indigo-300 text-xs font-semibold tracking-wide uppercase mb-8">
             <MapPin className="w-3 h-3" />
             {t.hero.badge}
           </div>
           
-          {/* Headline - Warm & Clear */}
-          <h1 className="text-5xl md:text-7xl font-bold tracking-tight mb-6 leading-[1.1] text-white animate-in fade-in slide-in-from-bottom-8 duration-1000 delay-100">
+          {/* Headline - Warm & Clear - No Animations for LCP */}
+          <h1 className="text-5xl md:text-7xl font-bold tracking-tight mb-6 leading-[1.1] text-white">
             {t.hero.headlineStart}
             <span className="block mt-2 text-transparent bg-clip-text bg-gradient-to-br from-indigo-200 via-indigo-400 to-purple-400 drop-shadow-lg pb-2">
               {t.hero.headlineHighlight}
             </span>
           </h1>
           
-          <p className="text-lg md:text-xl text-slate-400 mb-10 max-w-2xl mx-auto leading-relaxed font-light whitespace-pre-line animate-in fade-in slide-in-from-bottom-8 duration-1000 delay-200">
+          <p className="text-lg md:text-xl text-slate-400 mb-10 max-w-2xl mx-auto leading-relaxed font-light whitespace-pre-line">
             {t.hero.subheadline}
           </p>
 
-          {/* Buttons - Approachable */}
-          <div className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto animate-in fade-in slide-in-from-bottom-8 duration-1000 delay-300">
+          {/* Buttons - Approachable - No Animations */}
+          <div className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
             <a href="#contact" className="group relative px-8 py-3.5 bg-white text-slate-950 font-semibold rounded-lg transition-all hover:bg-slate-200 flex items-center justify-center gap-2 shadow-[0_0_20px_rgba(255,255,255,0.1)]">
               {t.hero.ctaPrimary}
               <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
