@@ -18,3 +18,10 @@ View your app in AI Studio: https://ai.studio/apps/drive/1R3gfDMD_PaZ-AJHRKBHZk6
 2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
 3. Run the app:
    `npm run dev`
+
+## Build & Deploy
+
+1. Build the app:
+   `npm run build`
+2. Google AI Studio deployed automatisch als Cloud Run Service
+3. Der `server.js` stellt sicher, dass SPA-Routing funktioniert (`/en` zeigt auf `index.html`)

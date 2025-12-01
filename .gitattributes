@@ -1,0 +1,21 @@
+# .gitattributes für konsistente Line Endings
+# Verhindert Warnungen bei git add
+
+# Text-Dateien verwenden LF (Unix-Style) für Konsistenz
+* text=auto eol=lf
+
+# Binär-Dateien explizit markieren
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.ico binary
+*.pdf binary
+*.woff binary
+*.woff2 binary
+*.ttf binary
+*.eot binary
+
+# XML-Dateien als Text behandeln
+*.xml text eol=lf
+

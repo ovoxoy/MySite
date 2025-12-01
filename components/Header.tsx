@@ -24,7 +24,8 @@ const Header: React.FC<HeaderProps> = ({ onNavigate }) => {
   }, []);
 
   const toggleLanguage = () => {
-    setLanguage(language === 'de' ? 'en' : 'de');
+    const newLang = language === 'de' ? 'en' : 'de';
+    setLanguage(newLang);
   };
 
   const handleNavClick = (sectionId: string) => {

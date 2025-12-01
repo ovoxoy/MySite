@@ -18,6 +18,19 @@ export default defineConfig(({ mode }) => {
         alias: {
           '@': path.resolve(__dirname, '.'),
         }
-      }
+      },
+      // SPA Fallback: Alle Routen auf index.html umleiten
+      preview: {
+        port: 4173,
+        host: '0.0.0.0',
+      },
+      build: {
+        // Wichtig für SPA: Alle Routen müssen auf index.html zeigen
+        rollupOptions: {
+          output: {
+            manualChunks: undefined,
+          },
+        },
+      },
     };
 });
