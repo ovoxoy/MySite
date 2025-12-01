@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Menu, X, Globe } from 'lucide-react';
 import { useLanguage } from '../LanguageContext';
-import { PageView } from '../types';
+import type { PageView } from '../types';
 
 interface HeaderProps {
   onNavigate: (view: PageView) => void;
@@ -63,7 +63,7 @@ const Header: React.FC<HeaderProps> = ({ onNavigate }) => {
           >
             <div className="relative w-10 h-10 rounded-full overflow-hidden shadow-lg shadow-sky-500/10 border border-white/5 bg-slate-900">
               <img 
-                src="/favicon.png" 
+                src="/favicon.png?v=2" 
                 alt="Maxim Klapf Logo" 
                 width="40"
                 height="40"

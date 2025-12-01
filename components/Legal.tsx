@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { ArrowLeft } from 'lucide-react';
 import { useLanguage } from '../LanguageContext';
-import { PageView } from '../types';
+import type { PageView } from '../types';
 
 interface LegalProps {
   page: PageView;

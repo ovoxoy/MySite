@@ -1,5 +1,5 @@
 import React from 'react';
-import { LucideProps } from 'lucide-react';
+import type { LucideProps } from 'lucide-react';
 
 // Definiert den Typ für Lucide Icons
 export type IconType = React.ForwardRefExoticComponent<Omit<LucideProps, "ref"> & React.RefAttributes<SVGSVGElement>>;
@@ -14,3 +14,6 @@ export interface ServiceItem {
 }
 
 export type PageView = 'home' | 'imprint' | 'privacy';
+
+// Dummy export to ensure this file is treated as a module and not elided during build
+export const RuntimeTypes = {};

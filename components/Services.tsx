@@ -1,7 +1,7 @@
 import React from 'react';
 import { Hammer, Utensils, Briefcase, Smartphone, BarChart3, ShieldCheck, ArrowRight, ExternalLink } from 'lucide-react';
 import { useLanguage } from '../LanguageContext';
-import { ServiceItem } from '../types';
+import type { ServiceItem } from '../types';
 
 const Services: React.FC = () => {
   const { t } = useLanguage();

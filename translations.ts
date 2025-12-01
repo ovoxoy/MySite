@@ -48,8 +48,8 @@ export const translations = {
           desc: "Sauberer Code für bessere Auffindbarkeit."
         },
         legal: {
-          title: "Rechtssicher",
-          desc: "Datenschutz & Impressum nach aktuellen Standards."
+          title: "DSGVO konform",
+          desc: "Datenschutz, Impressum und Cookie Banner nach aktuellen Standards."
         }
       }
     },

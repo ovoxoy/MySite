@@ -1,6 +1,6 @@
 import React from 'react';
 import { useLanguage } from '../LanguageContext';
-import { PageView } from '../types';
+import type { PageView } from '../types';
 
 interface FooterProps {
   onNavigate: (view: PageView) => void;

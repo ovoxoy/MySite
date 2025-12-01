@@ -24,14 +24,12 @@
     <!-- Google Ads / Analytics Tag ist jetzt im CookieBanner dynamisch integriert -->
 
     <!-- Favicons & App Icons (Optimized for Google Search) -->
+    <link rel="manifest" href="/manifest.json">
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png?v=2">
     <link rel="icon" type="image/png" sizes="192x192" href="/favicon.png?v=2">
     <link rel="apple-touch-icon" href="/favicon.png?v=2">
     
     <link rel="canonical" href="https://www.klapf.dev/" />
-    <link rel="alternate" hreflang="de" href="https://www.klapf.dev/" />
-    <link rel="alternate" hreflang="en" href="https://www.klapf.dev/en" />
-    <link rel="alternate" hreflang="x-default" href="https://www.klapf.dev/" />
 
     <!-- Open Graph / Facebook / WhatsApp Preview -->
     <meta property="og:type" content="website" />
@@ -191,10 +189,14 @@
     "react/": "https://aistudiocdn.com/react@^19.2.0/",
     "react": "https://aistudiocdn.com/react@^19.2.0",
     "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/",
-    "lucide-react": "https://aistudiocdn.com/lucide-react@^0.554.0",
-    "@google/genai": "https://aistudiocdn.com/@google/genai@^1.30.0"
+    "react-dom": "https://aistudiocdn.com/react-dom@^19.2.0",
+    "lucide-react": "https://aistudiocdn.com/lucide-react@^0.554.0"
   }
 }
+</script>
+<script>
+  window.process = { env: {} };
+  window.global = window;
 </script>
 </head>
   <body class="bg-slate-950 text-slate-50 antialiased selection:bg-sky-500/30 selection:text-sky-200">

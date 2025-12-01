@@ -7,47 +7,26 @@ import Contact from './components/Contact';
 import Footer from './components/Footer';
 import Legal from './components/Legal';
 import CookieBanner from './components/CookieBanner';
-import { PageView } from './types';
-import { getPathForLanguage, getCurrentPageFromUrl } from './urlUtils';
+import type { PageView } from './types';
 
 // Wrapper component to handle language-dependent side effects
 const AppContent: React.FC = () => {
+  const [currentView, setCurrentView] = useState<PageView>('home');
   const { t, language } = useLanguage();
-  
-  // Initialisiere View aus URL
-  const [currentView, setCurrentView] = useState<PageView>(() => {
-    const page = getCurrentPageFromUrl();
-    return (page === 'imprint' || page === 'privacy') ? page : 'home';
-  });
 
-  // Redirect von /de zu / (falls jemand alte URL aufruft)
-  useEffect(() => {
-    const path = window.location.pathname;
-    if (path.startsWith('/de')) {
-      const page = getCurrentPageFromUrl();
-      const newPath = getPathForLanguage('de', page === 'home' ? undefined : page);
-      window.history.replaceState({ lang: 'de', view: page === 'home' ? 'home' : page }, '', newPath);
-    }
-  }, []);
-
-  // Handle Browser History (Back Button) und URL-Änderungen
+  // Handle Browser History (Back Button)
   useEffect(() => {
     const handlePopState = (event: PopStateEvent) => {
-      const page = getCurrentPageFromUrl();
-      const view = (page === 'imprint' || page === 'privacy') ? page : 'home';
-      setCurrentView(view);
+      if (event.state && event.state.view) {
+        setCurrentView(event.state.view);
+      } else {
+        setCurrentView('home');
+      }
     };
-
-    // Initiale Synchronisation mit URL
-    const page = getCurrentPageFromUrl();
-    const view = (page === 'imprint' || page === 'privacy') ? page : 'home';
-    if (view !== currentView) {
-      setCurrentView(view);
-    }
 
     window.addEventListener('popstate', handlePopState);
     return () => window.removeEventListener('popstate', handlePopState);
-  }, [currentView]);
+  }, []);
 
   // Update Page Title based on View and Language
   useEffect(() => {
@@ -70,13 +49,12 @@ const AppContent: React.FC = () => {
   const handleNavigate = (view: PageView) => {
     setCurrentView(view);
     
-    // Push new state to history mit Sprach-Präfix
-    const path = getPathForLanguage(language, view === 'home' ? undefined : view);
-    window.history.pushState({ lang: language, view }, '', path);
-    
     if (view === 'home') {
+      window.history.pushState({ view: 'home' }, '', '/');
       setTimeout(() => window.scrollTo({ top: 0, behavior: 'smooth' }), 50);
     } else {
+      // Legal pages maintain query params
+      window.history.pushState({ view }, '', `?p=${view}`);
       window.scrollTo(0, 0);
     }
   };
