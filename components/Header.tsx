@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from 'react';
 import { Menu, X, Globe } from 'lucide-react';
 import { useLanguage } from '../LanguageContext';
@@ -5,16 +6,16 @@ import type { PageView } from '../types';
 
 interface HeaderProps {
   onNavigate: (view: PageView) => void;
+  currentView?: PageView;
 }
 
-const Header: React.FC<HeaderProps> = ({ onNavigate }) => {
+const Header: React.FC<HeaderProps> = ({ onNavigate, currentView }) => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const { language, setLanguage, t } = useLanguage();
 
   useEffect(() => {
     const handleScroll = () => {
-      // Optimization: Only update state if value changes to avoid re-renders
       const shouldBeScrolled = window.scrollY > 20;
       setIsScrolled(prev => prev !== shouldBeScrolled ? shouldBeScrolled : prev);
     };
@@ -28,21 +29,40 @@ const Header: React.FC<HeaderProps> = ({ onNavigate }) => {
     setLanguage(newLang);
   };
 
-  const handleNavClick = (sectionId: string) => {
-    onNavigate('home');
+  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement | HTMLButtonElement>, target: string) => {
+    e.preventDefault();
     setMobileMenuOpen(false);
     
-    // Small delay to allow View change to propagate before scrolling
-    setTimeout(() => {
-      if (sectionId === 'top') {
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-      } else {
-        const element = document.getElementById(sectionId);
-        if (element) {
-          element.scrollIntoView({ behavior: 'smooth' });
+    // 1. URL Hash aktualisieren (für "Standard" Browser Verhalten Feeling)
+    const isSandboxed = typeof window === 'undefined' || window.location.hostname === '';
+    
+    if (!isSandboxed) {
+        try {
+            if (target === 'top') {
+                window.history.pushState({ view: 'home' }, '', window.location.pathname);
+            } else {
+                window.history.pushState({ view: 'home' }, '', `#${target}`);
+            }
+        } catch (err) {
+            console.warn("History update failed", err);
         }
-      }
-    }, 100);
+    }
+
+    // 2. Navigation auslösen
+    // Wenn wir nicht auf Home sind, wechselt App.tsx die View und der useEffect dort scrollt zum Hash
+    // Wenn wir schon auf Home sind, scrollen wir manuell
+    if (currentView !== 'home') {
+        onNavigate('home');
+    } else {
+        if (target === 'top') {
+             window.scrollTo({ top: 0, behavior: 'smooth' });
+        } else {
+            const element = document.getElementById(target);
+            if (element) {
+                element.scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+    }
   };
 
   return (
@@ -56,8 +76,9 @@ const Header: React.FC<HeaderProps> = ({ onNavigate }) => {
       >
         <div className="container mx-auto px-4 flex justify-between items-center">
           {/* Logo */}
-          <button 
-            onClick={() => handleNavClick('top')} 
+          <a 
+            href="#"
+            onClick={(e) => handleNavClick(e, 'top')} 
             className="flex items-center gap-3 group focus:outline-none"
             aria-label="Zurück zum Start"
           >
@@ -73,29 +94,32 @@ const Header: React.FC<HeaderProps> = ({ onNavigate }) => {
             <span className="text-white font-semibold text-lg tracking-tight group-hover:text-indigo-200 transition-colors">
               Maxim Klapf
             </span>
-          </button>
+          </a>
 
           {/* Desktop Nav */}
           <nav className="hidden md:flex items-center gap-8">
-            <button 
-              onClick={() => handleNavClick('top')}
+            <a 
+              href="#"
+              onClick={(e) => handleNavClick(e, 'top')}
               className="text-slate-400 hover:text-white text-sm font-medium transition-colors focus:outline-none focus:text-white"
             >
               {t.nav.home}
-            </button>
-            <button 
-              onClick={() => handleNavClick('services')}
+            </a>
+            <a 
+              href="#services"
+              onClick={(e) => handleNavClick(e, 'services')}
               className="text-slate-400 hover:text-white text-sm font-medium transition-colors focus:outline-none focus:text-white"
             >
               {t.nav.services}
-            </button>
+            </a>
 
-            <button 
-              onClick={() => handleNavClick('contact')}
+            <a 
+              href="#contact"
+              onClick={(e) => handleNavClick(e, 'contact')}
               className="px-5 py-2 bg-white text-slate-950 text-sm font-semibold rounded hover:bg-slate-200 transition-all focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 focus:ring-offset-slate-900"
             >
               {t.nav.contact}
-            </button>
+            </a>
 
             <button 
               onClick={toggleLanguage}
@@ -132,25 +156,28 @@ const Header: React.FC<HeaderProps> = ({ onNavigate }) => {
         {/* Mobile Menu */}
         {mobileMenuOpen && (
           <div className="absolute top-full left-0 w-full bg-slate-950 border-b border-slate-800 md:hidden flex flex-col shadow-2xl animate-in slide-in-from-top-4 duration-200">
-            <button 
+            <a 
+              href="#"
               className="text-left text-slate-300 hover:text-white px-6 py-4 border-b border-slate-900 transition-colors active:bg-slate-900"
-              onClick={() => handleNavClick('top')}
+              onClick={(e) => handleNavClick(e, 'top')}
             >
               {t.nav.home}
-            </button>
-            <button 
+            </a>
+            <a 
+              href="#services"
               className="text-left text-slate-300 hover:text-white px-6 py-4 border-b border-slate-900 transition-colors active:bg-slate-900"
-              onClick={() => handleNavClick('services')}
+              onClick={(e) => handleNavClick(e, 'services')}
             >
               {t.nav.services}
-            </button>
+            </a>
             <div className="p-4">
-              <button 
-                className="w-full text-center bg-sky-600 text-white py-3 rounded font-semibold active:bg-sky-700 transition-colors"
-                onClick={() => handleNavClick('contact')}
+              <a 
+                href="#contact"
+                className="block w-full text-center bg-sky-600 text-white py-3 rounded font-semibold active:bg-sky-700 transition-colors"
+                onClick={(e) => handleNavClick(e, 'contact')}
               >
                 {t.nav.contactBtn}
-              </button>
+              </a>
             </div>
           </div>
         )}

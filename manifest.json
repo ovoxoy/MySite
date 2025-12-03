@@ -1,3 +1,4 @@
+
 {
   "name": "Maxim Klapf Webdesign",
   "short_name": "Maxim Klapf",
@@ -12,7 +13,7 @@
       "type": "image/png"
     },
     {
-      "src": "/favicon.png",
+      "src": "/icon512.png",
       "sizes": "512x512",
       "type": "image/png"
     }

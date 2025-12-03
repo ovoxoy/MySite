@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="de" class="scroll-smooth">
   <head>
@@ -21,10 +22,11 @@
     <meta name="robots" content="index, follow" />
 
     <!-- Favicons & App Icons (Optimized for Google Search) -->
-    <link rel="manifest" href="/manifest.json">
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png?v=3">
-    <link rel="icon" type="image/png" sizes="192x192" href="/favicon.png?v=3">
-    <link rel="apple-touch-icon" href="/favicon.png?v=3">
+    <link rel="manifest" href="/manifest.json?v=4">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png?v=4">
+    <link rel="icon" type="image/png" sizes="192x192" href="/favicon.png?v=4">
+    <link rel="icon" type="image/png" sizes="512x512" href="/icon512.png?v=4"> <!-- Explicit High-Res Icon for Google -->
+    <link rel="apple-touch-icon" href="/favicon.png?v=4">
     
     <link rel="canonical" href="https://www.klapf.dev/" />
 
@@ -32,6 +34,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preconnect" href="https://cdn.tailwindcss.com">
+    <link rel="preconnect" href="https://esm.sh">
     <link rel="dns-prefetch" href="https://formspree.io"> <!-- Speed up form submission -->
     
     <!-- Non-blocking Font Loading (Fix for Critical Request Chains) -->
@@ -211,6 +214,14 @@
 </head>
   <body class="bg-slate-950 text-slate-50 antialiased selection:bg-sky-500/30 selection:text-sky-200">
     <div id="root"></div>
-    <script type="module" src="./index.tsx"></script>
+    <script type="module" src="/index.tsx"></script>
+    <script>
+      // Hinweismeldung für Deployment-Probleme
+      window.addEventListener('error', function(e) {
+        if(e.message && e.message.includes('404')) {
+          console.warn('HINWEIS: Wenn du einen 404 Fehler für index.tsx siehst, hast du wahrscheinlich den Quellcode statt den Build-Ordner hochgeladen. Führe lokal "npm run build" aus und lade den Inhalt des "dist" Ordners hoch.');
+        }
+      });
+    </script>
   </body>
 </html>

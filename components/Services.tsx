@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { Hammer, Utensils, Briefcase, Smartphone, BarChart3, ShieldCheck, ArrowRight, ExternalLink } from 'lucide-react';
 import { useLanguage } from '../LanguageContext';
@@ -73,8 +74,8 @@ const Services: React.FC = () => {
               </p>
 
               {/* Action Buttons area */}
-              <div className="mt-auto">
-                {service.type === 'projects' && service.links ? (
+              <div className="mt-auto flex flex-col gap-4">
+                {service.type === 'projects' && service.links && (
                   <div className="flex flex-col gap-3">
                     <span className="text-xs font-semibold text-slate-500 uppercase tracking-wider mb-1">
                       {t.services.examplesLabel}
@@ -94,11 +95,12 @@ const Services: React.FC = () => {
                       ))}
                     </div>
                   </div>
-                ) : (
-                  <a href="#contact" className="inline-flex items-center text-xs font-bold text-indigo-400 uppercase tracking-wider group-hover:text-indigo-300 transition-colors py-2">
-                    {t.services.requestDemo} <ArrowRight className="w-3 h-3 ml-1 group-hover:translate-x-1 transition-transform" />
-                  </a>
                 )}
+                
+                {/* Contact Link - Always visible */}
+                <a href="#contact" className="inline-flex items-center text-xs font-bold text-indigo-400 uppercase tracking-wider group-hover:text-indigo-300 transition-colors py-2">
+                  {t.services.requestDemo} <ArrowRight className="w-3 h-3 ml-1 group-hover:translate-x-1 transition-transform" />
+                </a>
               </div>
             </div>
           ))}

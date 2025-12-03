@@ -49,6 +49,31 @@ const AppContent: React.FC = () => {
     return () => window.removeEventListener('popstate', handlePopState);
   }, []);
 
+  // Handle Hash Scrolling (e.g. #contact)
+  useEffect(() => {
+    // Function to scroll to hash
+    const scrollToHash = () => {
+      const hash = window.location.hash;
+      if (hash && currentView === 'home') {
+        // Remove # from id
+        const id = hash.replace('#', '');
+        const element = document.getElementById(id);
+        if (element) {
+          setTimeout(() => {
+            element.scrollIntoView({ behavior: 'smooth' });
+          }, 100); // Small delay to ensure rendering
+        }
+      } else if (currentView === 'home' && !hash) {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+    };
+
+    // Run on mount and when view changes to home
+    if (currentView === 'home') {
+      scrollToHash();
+    }
+  }, [currentView]);
+
   // Update Page Title based on View and Language
   useEffect(() => {
     let title = "Maxim Klapf | Webdesign";
@@ -68,14 +93,33 @@ const AppContent: React.FC = () => {
   }, [currentView, language, t]);
 
   const handleNavigate = (view: PageView) => {
+    // Don't do anything if we are already on the view and it's not home (to allow scrolling on home)
+    if (currentView === view && view !== 'home') return;
+
     setCurrentView(view);
     
-    if (view === 'home') {
-      window.history.pushState({ view: 'home' }, '', '/');
-      setTimeout(() => window.scrollTo({ top: 0, behavior: 'smooth' }), 50);
-    } else {
-      // Legal pages maintain query params
-      window.history.pushState({ view }, '', `?p=${view}`);
+    // Safety check for sandboxed environments
+    const isSandboxed = 
+      typeof window === 'undefined' || 
+      window.location.protocol === 'blob:' || 
+      window.location.protocol === 'data:' ||
+      window.location.hostname === '';
+
+    if (!isSandboxed) {
+      try {
+        if (view === 'home') {
+          // If navigating to home, we preserve the hash if it exists in the click handler, 
+          // otherwise we clean it up in the component logic
+        } else {
+          // Remove hash when going to legal pages
+          window.history.pushState({ view }, '', `?p=${view}`);
+        }
+      } catch (e) {
+        console.warn('Navigation history update skipped:', e);
+      }
+    }
+
+    if (view !== 'home') {
       window.scrollTo(0, 0);
     }
   };
@@ -84,6 +128,7 @@ const AppContent: React.FC = () => {
     <div className="min-h-screen bg-slate-900 flex flex-col font-sans">
       <Header 
         onNavigate={handleNavigate} 
+        currentView={currentView}
       />
       
       <main className="flex-grow">
