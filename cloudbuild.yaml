@@ -1,0 +1,26 @@
+steps:
+  # Deploy to Cloud Run with Cloud Buildpacks (auto-detects Node.js/Vite)
+  - name: 'gcr.io/cloud-builders/gcloud'
+    args:
+      - 'run'
+      - 'deploy'
+      - '${_SERVICE_NAME}'
+      - '--source=.'
+      - '--region'
+      - '${_REGION}'
+      - '--platform'
+      - 'managed'
+      - '--allow-unauthenticated'
+    id: 'deploy'
+
+# Substitutions
+substitutions:
+  _SERVICE_NAME: 'mysite'
+  _REGION: 'us-central1'
+
+# Options
+options:
+  logging: CLOUD_LOGGING_ONLY
+
+# Timeout
+timeout: '1200s'
