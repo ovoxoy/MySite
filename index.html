@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="de" class="scroll-smooth">
   <head>
@@ -20,95 +21,24 @@
     <meta name="author" content="Maxim Klapf" />
     <meta name="robots" content="index, follow" />
 
-    <!-- Icons & App Icons (Optimized for Google Search & Performance) -->
-    <link rel="manifest" href="/manifest.json?v=5">
-    
-    <!-- Fallback for legacy browsers -->
-    <link rel="shortcut icon" href="/icon32.png?v=5">
-    
-    <!-- Standard Icons -->
-    <link rel="icon" type="image/png" sizes="32x32" href="/icon32.png?v=5">
-    <link rel="icon" type="image/png" sizes="192x192" href="/icon192.png?v=5">
-    <link rel="icon" type="image/png" sizes="512x512" href="/icon512.png?v=5">
-    <link rel="apple-touch-icon" href="/appleicon.png?v=5">
+    <!-- Favicons & App Icons (Optimized for Google Search) -->
+    <link rel="manifest" href="/manifest.json?v=4">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png?v=4">
+    <link rel="icon" type="image/png" sizes="192x192" href="/favicon.png?v=4">
+    <link rel="icon" type="image/png" sizes="512x512" href="/icon512.png?v=4"> <!-- Explicit High-Res Icon for Google -->
+    <link rel="apple-touch-icon" href="/favicon.png?v=4">
     
     <link rel="canonical" href="https://www.klapf.dev/" />
 
-    <!-- Performance Optimization: Preconnect & Preload -->
+    <!-- Performance Optimization: Preconnect & Prefetch -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preconnect" href="https://cdn.tailwindcss.com">
     <link rel="preconnect" href="https://esm.sh">
-    <link rel="dns-prefetch" href="https://formspree.io"> 
+    <link rel="dns-prefetch" href="https://formspree.io"> <!-- Speed up form submission -->
     
-    <!-- Module Preload: Break critical request chains -->
-    <link rel="modulepreload" href="/index.tsx">
-
-    <!-- Critical CSS: Inlined styles to prevent FOUC while Tailwind loads asynchronously -->
-    <style>
-      body {
-        font-family: 'Inter', system-ui, -apple-system, sans-serif;
-        background-color: #020617; /* Slate-950 */
-        color: #f8fafc; /* Slate-50 */
-        margin: 0;
-        line-height: inherit;
-      }
-
-      h1, h2, h3, h4, h5, h6 {
-        font-family: 'Outfit', sans-serif;
-        font-weight: 700;
-        color: #fff;
-      }
-
-      /* Custom Scrollbar */
-      ::-webkit-scrollbar {
-        width: 8px;
-      }
-      ::-webkit-scrollbar-track {
-        background: #020617;
-      }
-      ::-webkit-scrollbar-thumb {
-        background: #0ea5e9; /* Sky-500 */
-        border-radius: 4px;
-      }
-      ::-webkit-scrollbar-thumb:hover {
-        background: #0284c7; /* Sky-600 */
-      }
-
-      /* Background Grid Pattern - Critical for Hero LCP */
-      .bg-grid-slate {
-        background-size: 40px 40px;
-        background-image: linear-gradient(to right, rgba(255, 255, 255, 0.08) 1px, transparent 1px),
-                          linear-gradient(to bottom, rgba(255, 255, 255, 0.08) 1px, transparent 1px);
-      }
-
-      /* Standard Animations */
-      @keyframes float {
-        0% { transform: translateY(0px); }
-        50% { transform: translateY(-10px); }
-        100% { transform: translateY(0px); }
-      }
-      @keyframes enter-animation {
-        0% { opacity: 0; transform: translateY(1rem); }
-        100% { opacity: 1; transform: translateY(0); }
-      }
-
-      .animate-float { animation: float 8s ease-in-out infinite; }
-      .animate-in { animation: enter-animation 0.6s ease-out forwards; }
-
-      /* Glass Effects */
-      .glass-panel {
-        background: rgba(15, 23, 42, 0.6);
-        backdrop-filter: blur(16px);
-        -webkit-backdrop-filter: blur(16px);
-        border: 1px solid rgba(255, 255, 255, 0.08);
-      }
-    </style>
-
-    <!-- Tailwind CSS (Async to unblock rendering) -->
-    <script src="https://cdn.tailwindcss.com" async></script>
-
-    <!-- Fonts: Non-blocking load strategy -->
+    <!-- Non-blocking Font Loading (Fix for Critical Request Chains) -->
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" media="print" onload="this.media='all'">
     <noscript>
       <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap">
@@ -126,6 +56,9 @@
     <meta property="twitter:card" content="summary_large_image" />
     <meta property="twitter:title" content="Maxim Klapf | Webdesign Altomünster" />
     <meta property="twitter:description" content="Moderne Webseiten für Handwerk & Gastronomie aus der Region. Schnell, persönlich & kostengünstig." />
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
     
     <!-- Structured Data (Schema.org) for Local Business -->
     <script type="application/ld+json">
@@ -165,6 +98,102 @@
       "description": "Professionelles Webdesign und digitale Lösungen für Handwerk, Gastronomie und Dienstleister in Altomünster und Umgebung."
     }
     </script>
+
+    <style>
+      body {
+        font-family: 'Inter', sans-serif;
+        background-color: #020617;
+        color: #f8fafc;
+      }
+
+      h1, h2, h3, h4, h5, h6 {
+        font-family: 'Outfit', sans-serif;
+      }
+
+      /* Custom Scrollbar */
+      ::-webkit-scrollbar {
+        width: 8px;
+      }
+      ::-webkit-scrollbar-track {
+        background: #020617;
+      }
+      ::-webkit-scrollbar-thumb {
+        background: #0ea5e9; /* Sky-500 */
+        border-radius: 4px;
+      }
+      ::-webkit-scrollbar-thumb:hover {
+        background: #0284c7; /* Sky-600 */
+      }
+
+      /* Background Grid Pattern */
+      .bg-grid-slate {
+        background-size: 40px 40px;
+        background-image: linear-gradient(to right, rgba(255, 255, 255, 0.08) 1px, transparent 1px),
+                          linear-gradient(to bottom, rgba(255, 255, 255, 0.08) 1px, transparent 1px);
+      }
+
+      /* Standard Animations */
+      @keyframes float {
+        0% { transform: translateY(0px); }
+        50% { transform: translateY(-10px); }
+        100% { transform: translateY(0px); }
+      }
+      @keyframes shimmer {
+        from { background-position: 0 0; }
+        to { background-position: -200% 0; }
+      }
+
+      .animate-float { animation: float 8s ease-in-out infinite; }
+      
+      /* Entry Animations (mimics tailwindcss-animate) */
+      @keyframes enter-animation {
+        0% {
+          opacity: 0;
+          transform: translateY(var(--tw-enter-translate-y, 0));
+        }
+        100% {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .animate-in {
+        animation: enter-animation 0.6s ease-out forwards;
+      }
+      
+      .slide-in-from-bottom-4 { --tw-enter-translate-y: 1rem; }
+      .slide-in-from-bottom-8 { --tw-enter-translate-y: 2rem; }
+      
+      /* Animation Duration Utilities */
+      .duration-700 { animation-duration: 700ms; }
+      .duration-1000 { animation-duration: 1000ms; }
+      
+      /* Animation Delay Utilities */
+      .delay-100 { animation-delay: 100ms; }
+      .delay-200 { animation-delay: 200ms; }
+      .delay-300 { animation-delay: 300ms; }
+      .delay-500 { animation-delay: 500ms; }
+
+      /* Glass Effects */
+      .glass-panel {
+        background: rgba(15, 23, 42, 0.6);
+        backdrop-filter: blur(16px);
+        -webkit-backdrop-filter: blur(16px);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+      }
+      
+      .glass-card {
+        background: rgba(2, 6, 23, 0.5);
+        backdrop-filter: blur(8px);
+        border: 1px solid rgba(255, 255, 255, 0.06);
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+      .glass-card:hover {
+        background: rgba(30, 41, 59, 0.4);
+        border-color: rgba(14, 165, 233, 0.3); /* Sky-500/30 */
+        transform: translateY(-4px);
+      }
+    </style>
   <script type="importmap">
 {
   "imports": {
@@ -186,5 +215,13 @@
   <body class="bg-slate-950 text-slate-50 antialiased selection:bg-sky-500/30 selection:text-sky-200">
     <div id="root"></div>
     <script type="module" src="/index.tsx"></script>
+    <script>
+      // Hinweismeldung für Deployment-Probleme
+      window.addEventListener('error', function(e) {
+        if(e.message && e.message.includes('404')) {
+          console.warn('HINWEIS: Wenn du einen 404 Fehler für index.tsx siehst, hast du wahrscheinlich den Quellcode statt den Build-Ordner hochgeladen. Führe lokal "npm run build" aus und lade den Inhalt des "dist" Ordners hoch.');
+        }
+      });
+    </script>
   </body>
 </html>
