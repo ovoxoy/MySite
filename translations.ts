@@ -35,8 +35,9 @@ export const translations = {
         }
       ],
       more: "Mehr erfahren",
-      examplesLabel: "Live-Referenz ansehen:",
+      examplesLabel: "Live-Referenzen ansehen:",
       demoHorse: "🐴 Pferdephysiotherapie",
+      demoHair: "✂️ Friseur Art of Hair",
       requestDemo: "Jetzt anfragen",
       features: {
         responsive: {
@@ -163,8 +164,9 @@ export const translations = {
         }
       ],
       more: "Learn more",
-      examplesLabel: "View live reference:",
+      examplesLabel: "View live references:",
       demoHorse: "🐴 Horse Physiotherapy",
+      demoHair: "✂️ Art of Hair Salon",
       requestDemo: "Request now",
       features: {
         responsive: {
