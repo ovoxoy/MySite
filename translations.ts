@@ -71,7 +71,7 @@ export const translations = {
         response: "Ich melde mich innerhalb von 12 Stunden.",
         successTitle: "Nachricht gesendet!",
         successMessage: "Vielen Dank für Ihre Anfrage. Ich melde mich in Kürze bei Ihnen.",
-        errorMessage: "Ups, etwas ist schiefgelaufen. Bitte versuchen Sie es erneut oder schreiben Sie mir direkt eine Mail an maxim.klapf@web.de .",
+        errorMessage: "Ups, etwas ist schiefgelaufen. Bitte versuchen Sie es erneut oder schreiben Sie mir direkt eine Mail an kontakt@klapf.dev .",
         privacyHint: "Mit dem Absenden erkläre ich mich mit der Verarbeitung meiner Daten einverstanden."
       },
       placeholders: {
@@ -95,7 +95,7 @@ export const translations = {
         zipCity: "85250 Altomünster",
         contactTitle: "Kontakt",
         phone: "Telefon: +49 173 6398022",
-        email: "E-Mail: maxim.klapf@web.de",
+        email: "E-Mail: kontakt@klapf.dev",
         taxTitle: "Umsatzsteuer-ID",
         taxId: "Umsatzsteuer-Identifikationsnummer gemäß § 27 a Umsatzsteuergesetz: [Deine USt-IdNr.]",
         smallBusiness: "Gemäß § 19 UStG wird keine Umsatzsteuer berechnet.",
@@ -224,7 +224,7 @@ export const translations = {
         zipCity: "85250 Altomünster, Germany",
         contactTitle: "Contact",
         phone: "Phone: +49 173 6398022",
-        email: "Email: maxim.klapf@web.de",
+        email: "Email: kontakt@klapf.dev",
         taxTitle: "VAT ID",
         taxId: "VAT Identification Number according to § 27 a Value Added Tax Act: [Your VAT ID]",
         smallBusiness: "According to § 19 UStG no sales tax is charged.",
