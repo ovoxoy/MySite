@@ -38,29 +38,25 @@ const Services: React.FC = () => {
   return (
     <section id="services" className="py-24 md:py-32 bg-slate-950 relative border-t border-white/5 scroll-mt-20">
       <div className="container mx-auto px-4 relative z-10">
-        
+
         <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
-            <div className="max-w-2xl">
-                <h2 className="text-3xl md:text-4xl font-bold text-white mb-4 tracking-tight">
-                    {t.services.headline} <span className="text-indigo-400">{t.services.headlineHighlight}</span>
-                </h2>
-                <p className="text-slate-400 text-lg font-light leading-relaxed">
-                    {t.services.subheadline}
-                </p>
-            </div>
-            {/* Decorative line */}
-            <div className="hidden md:block h-px flex-1 bg-slate-800 ml-12 mb-2"></div>
+          <div className="max-w-2xl">
+            <h2 className="text-3xl md:text-4xl font-bold text-white mb-4 tracking-tight">
+              {t.services.headline} <span className="text-indigo-400">{t.services.headlineHighlight}</span>
+            </h2>
+            <p className="text-slate-400 text-lg font-light leading-relaxed">
+              {t.services.subheadline}
+            </p>
+          </div>
+          {/* Decorative line */}
+          <div className="hidden md:block h-px flex-1 bg-slate-800 ml-12 mb-2"></div>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 auto-rows-fr">
           {services.map((service, index) => (
-            <div 
-              key={index} 
-              className={`group relative p-8 rounded-xl transition-all duration-300 border flex flex-col h-full ${
-                service.highlight 
-                  ? 'bg-slate-900/80 border-indigo-500/30 shadow-[0_0_30px_rgba(99,102,241,0.1)] hover:shadow-[0_0_40px_rgba(99,102,241,0.15)]' 
-                  : 'bg-slate-900/40 border-slate-800 hover:border-slate-700 hover:bg-slate-900/60'
-              }`}
+            <div
+              key={index}
+              className="group relative p-8 rounded-xl transition-all duration-300 border flex flex-col h-full bg-slate-900/40 border-slate-800 hover:border-slate-700 hover:bg-slate-900/60"
             >
               <div className="mb-6 inline-flex p-3 rounded-lg bg-slate-950 border border-slate-800 text-slate-200 group-hover:text-indigo-400 group-hover:border-indigo-500/30 transition-colors">
                 <service.icon className="w-6 h-6" strokeWidth={1.5} />
@@ -69,7 +65,7 @@ const Services: React.FC = () => {
               <h3 className="text-xl font-semibold text-white mb-3 tracking-tight group-hover:text-indigo-200 transition-colors">
                 {service.title}
               </h3>
-              
+
               <p className="text-slate-400 text-sm leading-relaxed mb-8 flex-grow">
                 {service.description}
               </p>
@@ -81,14 +77,14 @@ const Services: React.FC = () => {
                     <span className="text-xs font-semibold text-slate-500 uppercase tracking-wider mb-1">
                       {t.services.examplesLabel}
                     </span>
-                    <div className="flex flex-wrap gap-2">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                       {service.links.map((link, i) => (
-                        <a 
+                        <a
                           key={i}
                           href={link.url}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="flex-1 inline-flex items-center justify-center gap-2 px-4 py-2.5 bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white rounded-lg text-xs font-medium transition-all border border-slate-700 hover:border-slate-600 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 focus:ring-offset-slate-900 min-w-[140px]"
+                          className="inline-flex items-center justify-center gap-2 px-4 py-2.5 bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white rounded-lg text-xs font-medium transition-all border border-slate-700 hover:border-slate-600 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 focus:ring-offset-slate-900 w-full"
                         >
                           {link.label}
                           <ExternalLink className="w-3 h-3" />
@@ -97,7 +93,7 @@ const Services: React.FC = () => {
                     </div>
                   </div>
                 )}
-                
+
                 {/* Contact Link - Always visible */}
                 <a href="#contact" className="inline-flex items-center text-xs font-bold text-indigo-400 uppercase tracking-wider group-hover:text-indigo-300 transition-colors py-2">
                   {t.services.requestDemo} <ArrowRight className="w-3 h-3 ml-1 group-hover:translate-x-1 transition-transform" />
@@ -109,21 +105,21 @@ const Services: React.FC = () => {
 
         {/* Feature Grid - Simple explanations */}
         <div className="mt-24 grid grid-cols-1 md:grid-cols-3 divide-y md:divide-y-0 md:divide-x divide-slate-800 border-t border-b border-slate-800 bg-slate-900/20 rounded-lg overflow-hidden">
-            <div className="p-8 flex flex-col items-center text-center hover:bg-slate-900/40 transition-colors">
-                <Smartphone className="w-8 h-8 text-slate-500 mb-4" strokeWidth={1.5} />
-                <h4 className="font-semibold text-white mb-2">{t.services.features.responsive.title}</h4>
-                <p className="text-sm text-slate-400 max-w-[200px]">{t.services.features.responsive.desc}</p>
-            </div>
-            <div className="p-8 flex flex-col items-center text-center hover:bg-slate-900/40 transition-colors">
-                <BarChart3 className="w-8 h-8 text-slate-500 mb-4" strokeWidth={1.5} />
-                <h4 className="font-semibold text-white mb-2">{t.services.features.seo.title}</h4>
-                <p className="text-sm text-slate-400 max-w-[200px]">{t.services.features.seo.desc}</p>
-            </div>
-            <div className="p-8 flex flex-col items-center text-center hover:bg-slate-900/40 transition-colors">
-                <ShieldCheck className="w-8 h-8 text-slate-500 mb-4" strokeWidth={1.5} />
-                <h4 className="font-semibold text-white mb-2">{t.services.features.legal.title}</h4>
-                <p className="text-sm text-slate-400 max-w-[200px]">{t.services.features.legal.desc}</p>
-            </div>
+          <div className="p-8 flex flex-col items-center text-center hover:bg-slate-900/40 transition-colors">
+            <Smartphone className="w-8 h-8 text-slate-500 mb-4" strokeWidth={1.5} />
+            <h4 className="font-semibold text-white mb-2">{t.services.features.responsive.title}</h4>
+            <p className="text-sm text-slate-400 max-w-[200px]">{t.services.features.responsive.desc}</p>
+          </div>
+          <div className="p-8 flex flex-col items-center text-center hover:bg-slate-900/40 transition-colors">
+            <BarChart3 className="w-8 h-8 text-slate-500 mb-4" strokeWidth={1.5} />
+            <h4 className="font-semibold text-white mb-2">{t.services.features.seo.title}</h4>
+            <p className="text-sm text-slate-400 max-w-[200px]">{t.services.features.seo.desc}</p>
+          </div>
+          <div className="p-8 flex flex-col items-center text-center hover:bg-slate-900/40 transition-colors">
+            <ShieldCheck className="w-8 h-8 text-slate-500 mb-4" strokeWidth={1.5} />
+            <h4 className="font-semibold text-white mb-2">{t.services.features.legal.title}</h4>
+            <p className="text-sm text-slate-400 max-w-[200px]">{t.services.features.legal.desc}</p>
+          </div>
         </div>
       </div>
     </section>
