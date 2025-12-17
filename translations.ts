@@ -127,6 +127,26 @@ export const translations = {
       text: "Wir nutzen Cookies und externe Dienste (wie Google Analytics/Ads), um unser Angebot besser zu machen. Sie können entscheiden, ob Sie das zulassen wollen.",
       accept: "Alle akzeptieren",
       decline: "Nur notwendige"
+    },
+    pricing: {
+      headline: "Transparent &",
+      headlineHighlight: "Fair",
+      subheadline: "Keine versteckten Kosten. Investieren Sie in Qualität, die sich auszahlt.",
+      web: {
+        title: "Webseite",
+        price: "ab 250€",
+        desc: "Ideal für den Start. Professionelles Design, mobiloptimiert und rechtssicher.",
+        features: ["Individuelles Design", "Optimiert für alle Geräte", "Kontaktformular", "Impressum & Datenschutz"]
+      },
+      updates: {
+        title: "Änderungspakete",
+        price: "ab 50€",
+        desc: "Kleine Anpassungen oder regelmäßige Pflege? Ich halte Ihre Seite aktuell.",
+        features: ["Inhaltliche Updates", "Bildertausch", "Farbänderung", "Technische Wartung"]
+      },
+      cta: "Jetzt anfragen",
+      oneTime: "/ einmalig",
+      perOrder: "/ Auftrag"
     }
   },
   en: {
@@ -256,6 +276,26 @@ export const translations = {
       text: "We use cookies and external services (like Google Analytics/Ads), to improve our offer. You can decide whether you want to allow this.",
       accept: "Accept all",
       decline: "Necessary only"
-    }
+    },
+    pricing: {
+      headline: "Transparent &",
+      headlineHighlight: "Fair",
+      subheadline: "No hidden costs. Invest in quality that pays off.",
+      web: {
+        title: "Website",
+        price: "from 250€",
+        desc: "Perfect for getting started. Professional design, mobile-optimized and legally compliant.",
+        features: ["Individual Design", "Optimized For All Devices", "Contact Form", "Imprint & Privacy"]
+      },
+      updates: {
+        title: "Change Packages",
+        price: "from 50€",
+        desc: "Small adjustments or regular maintenance? I keep your site up to date.",
+        features: ["Content Updates", "Image Swaps", "Color Changes", "Technical Maintenance"]
+      },
+      cta: "Request Quote",
+      oneTime: "/ one-time",
+      perOrder: "/ commission"
+    },
   }
 };
