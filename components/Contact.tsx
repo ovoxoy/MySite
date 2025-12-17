@@ -48,7 +48,7 @@ const Contact: React.FC = () => {
   };
 
   return (
-    <section id="contact" className="py-24 md:py-32 bg-slate-950 relative scroll-mt-10">
+    <section id="contact" className="md:py-24 bg-slate-950 relative scroll-mt-10 border-t border-white/5">
       <div className="container mx-auto px-4">
         <div className="max-w-5xl mx-auto">
 

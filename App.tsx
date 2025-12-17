@@ -4,6 +4,7 @@ import { LanguageProvider, useLanguage } from './LanguageContext';
 import Header from './components/Header';
 import Hero from './components/Hero';
 import Services from './components/Services';
+import Pricing from './components/Pricing';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
 import type { PageView } from './types';
@@ -78,8 +79,8 @@ const AppContent: React.FC = () => {
   useEffect(() => {
     let title = "Maxim Klapf | Webdesign";
     if (currentView === 'home') {
-      title = language === 'de' 
-        ? "Maxim Klapf | Webdesign Altomünster - Handwerk & Gastro" 
+      title = language === 'de'
+        ? "Maxim Klapf | Webdesign Altomünster - Handwerk & Gastro"
         : "Maxim Klapf | Web Design Altomünster - Crafts & Gastro";
     } else if (currentView === 'imprint') {
       title = t.legal.imprint.title + " | Maxim Klapf";
@@ -87,7 +88,7 @@ const AppContent: React.FC = () => {
       title = t.legal.privacy.title + " | Maxim Klapf";
     }
     document.title = title;
-    
+
     // Update HTML lang attribute
     document.documentElement.lang = language;
   }, [currentView, language, t]);
@@ -97,11 +98,11 @@ const AppContent: React.FC = () => {
     if (currentView === view && view !== 'home') return;
 
     setCurrentView(view);
-    
+
     // Safety check for sandboxed environments
-    const isSandboxed = 
-      typeof window === 'undefined' || 
-      window.location.protocol === 'blob:' || 
+    const isSandboxed =
+      typeof window === 'undefined' ||
+      window.location.protocol === 'blob:' ||
       window.location.protocol === 'data:' ||
       window.location.hostname === '';
 
@@ -126,16 +127,17 @@ const AppContent: React.FC = () => {
 
   return (
     <div className="min-h-screen bg-slate-900 flex flex-col font-sans">
-      <Header 
-        onNavigate={handleNavigate} 
+      <Header
+        onNavigate={handleNavigate}
         currentView={currentView}
       />
-      
+
       <main className="flex-grow">
         {currentView === 'home' ? (
           <>
             <Hero />
             <Services />
+            <Pricing />
             <Contact />
           </>
         ) : (
@@ -144,16 +146,16 @@ const AppContent: React.FC = () => {
               <div className="w-8 h-8 border-4 border-indigo-500/30 border-t-indigo-500 rounded-full animate-spin"></div>
             </div>
           }>
-            <Legal 
-              page={currentView} 
-              onBack={() => handleNavigate('home')} 
+            <Legal
+              page={currentView}
+              onBack={() => handleNavigate('home')}
             />
           </Suspense>
         )}
       </main>
-      
+
       <Footer onNavigate={handleNavigate} />
-      
+
       <Suspense fallback={null}>
         <CookieBanner />
       </Suspense>
