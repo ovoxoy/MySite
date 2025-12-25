@@ -91,6 +91,18 @@ const AppContent: React.FC = () => {
 
     // Update HTML lang attribute
     document.documentElement.lang = language;
+
+    // Update Canonical Tag
+    const canonicalLink = document.querySelector("link[rel='canonical']");
+    if (canonicalLink) {
+      let canonicalUrl = "https://klapf.dev/";
+      if (currentView === 'imprint') {
+        canonicalUrl = "https://klapf.dev/?p=imprint";
+      } else if (currentView === 'privacy') {
+        canonicalUrl = "https://klapf.dev/?p=privacy";
+      }
+      canonicalLink.setAttribute("href", canonicalUrl);
+    }
   }, [currentView, language, t]);
 
   const handleNavigate = (view: PageView) => {
