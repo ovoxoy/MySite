@@ -61,14 +61,14 @@ export const translations = {
       labels: {
         email: "E-Mail",
         phone: "WhatsApp / Telefon",
-        office: "Büro",
+        office: "Standort",
         name: "Ihr Name",
         phoneInput: "Telefon",
         emailInput: "E-Mail Adresse",
-        message: "Worum geht's?",
+        message: "Ihre Nachricht an mich",
         submit: "Nachricht absenden",
         sending: "Sende...",
-        response: "Ich melde mich innerhalb von 12 Stunden.",
+        response: "Ich werde mich innerhalb von 12 Stunden melden.",
         successTitle: "Nachricht gesendet!",
         successMessage: "Vielen Dank für Ihre Anfrage. Ich melde mich in Kürze bei Ihnen.",
         errorMessage: "Ups, etwas ist schiefgelaufen. Bitte versuchen Sie es erneut oder schreiben Sie mir direkt eine Mail an kontakt@klapf.dev .",
@@ -76,7 +76,7 @@ export const translations = {
       },
       placeholders: {
         name: "Max Mustermann",
-        message: "Kurze Beschreibung Ihrer Wunschwebseite"
+        message: "Kurze Beschreibung Ihres Wunschprojektes"
       }
     },
     footer: {
@@ -132,11 +132,12 @@ export const translations = {
       headline: "Transparent &",
       headlineHighlight: "Fair",
       subheadline: "Keine versteckten Kosten. Investieren Sie in Qualität, die sich auszahlt.",
+      hostingHighlight: "Komplett-Service: Webseite mit Hosting & Domainverwaltung",
       web: {
         title: "Webseite",
         price: "ab 250€",
-        desc: "Ideal für den Start. Professionelles Design, mobiloptimiert und rechtssicher.",
-        features: ["Individuelles Design", "Optimiert für alle Geräte", "Kontaktformular", "Impressum & Datenschutz"]
+        desc: "Alles aus einer Hand: Professionelles Design & mobiloptimiert",
+        features: ["Individuelles Design", "Optimiert für alle Geräte", "Impressum & Datenschutz"]
       },
       updates: {
         title: "Änderungspakete",
@@ -144,9 +145,16 @@ export const translations = {
         desc: "Kleine Anpassungen oder regelmäßige Pflege? Ich halte Ihre Seite aktuell.",
         features: ["Inhaltliche Updates", "Bildertausch", "Farbänderung", "Technische Wartung"]
       },
+      hosting: {
+        title: "Hosting & Domain",
+        price: "ab 5€",
+        desc: "Kein Verwaltungsaufwand. Ich kümmere mich um Technik, Hosting & Ihre persönliche Domain.",
+        features: ["High-Speed Hosting", "Wunsch-Domain inklusive", "SSL-Verschlüsselung"]
+      },
       cta: "Jetzt anfragen",
       oneTime: "/ einmalig",
-      perOrder: "/ Auftrag"
+      perOrder: "/ Auftrag",
+      perMonth: "/ Monat"
     }
   },
   en: {
@@ -191,7 +199,7 @@ export const translations = {
       features: {
         responsive: {
           title: "For all devices",
-          desc: "Perfect display on smartphone, tablet and PC."
+          desc: "Perfectly displayed on smartphone, tablet and PC."
         },
         seo: {
           title: "Google Optimized",
@@ -204,17 +212,17 @@ export const translations = {
       }
     },
     contact: {
-      headline: "Asking costs",
-      headlineHighlight: "nothing.",
-      subheadline: "Whether you already have a concrete idea or just want to know what's possible. Just write to me without obligation.",
+      headline: "Inquiries are",
+      headlineHighlight: "free of charge.",
+      subheadline: "Whether you have a specific idea or just want to explore your options feel free to reach out with no obligation.",
       labels: {
         email: "Email",
         phone: "WhatsApp / Phone",
-        office: "Office",
+        office: "Location",
         name: "Your Name",
         phoneInput: "Phone",
         emailInput: "Email Address",
-        message: "What's it about?",
+        message: "Your message",
         submit: "Send message",
         sending: "Sending...",
         response: "I usually reply within 24 hours.",
@@ -225,7 +233,7 @@ export const translations = {
       },
       placeholders: {
         name: "John Doe",
-        message: "Short description of your request..."
+        message: "Let me know what you want to work on"
       }
     },
     footer: {
@@ -281,11 +289,12 @@ export const translations = {
       headline: "Transparent &",
       headlineHighlight: "Fair",
       subheadline: "No hidden costs. Invest in quality that pays off.",
+      hostingHighlight: "Full Service: Hosting & domain management are already included.",
       web: {
         title: "Website",
         price: "from 250€",
-        desc: "Perfect for getting started. Professional design, mobile-optimized and legally compliant.",
-        features: ["Individual Design", "Optimized For All Devices", "Contact Form", "Imprint & Privacy"]
+        desc: "Complete solutions with professional design and mobile optimized experience.",
+        features: ["Individual Design", "Optimized For All Devices", "Imprint & Privacy"]
       },
       updates: {
         title: "Change Packages",
@@ -293,9 +302,16 @@ export const translations = {
         desc: "Small adjustments or regular maintenance? I keep your site up to date.",
         features: ["Content Updates", "Image Swaps", "Color Changes", "Technical Maintenance"]
       },
+      hosting: {
+        title: "Hosting & Domain",
+        price: "from 5€",
+        desc: "Full technical management including hosting & domain handling.",
+        features: ["High-Speed Hosting", "Custom Domain incl.", "SSL Encryption"]
+      },
       cta: "Request Quote",
       oneTime: "/ one-time",
-      perOrder: "/ commission"
+      perOrder: "/ commission",
+      perMonth: "/ month"
     },
   }
 };
