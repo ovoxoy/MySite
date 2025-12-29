@@ -18,6 +18,10 @@ steps:
     - 'gcr.io/$PROJECT_ID/mysite'
     - '--region'
     - 'europe-west1'
+    - '--min-instances=0'
+    - '--max-instances=1'
+    - '--memory=128Mi'
+    - '--cpu-throttling'
 
 images:
   - 'gcr.io/$PROJECT_ID/mysite'
