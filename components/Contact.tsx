@@ -54,7 +54,7 @@ const Contact: React.FC = () => {
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-24">
 
-            {/* Left Column: Context*/}
+            {/* Left Column: Context 3*/}
             <div>
               <h2 className="text-3xl md:text-4xl font-bold text-white mb-6 tracking-tight">
                 {t.contact.headline} <span className="text-indigo-400">{t.contact.headlineHighlight}</span>
