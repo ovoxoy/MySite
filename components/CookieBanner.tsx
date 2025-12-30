@@ -1,3 +1,5 @@
+"use client";
+
 import React, { useState, useEffect } from 'react';
 import { useLanguage } from '../LanguageContext';
 import { ShieldCheck, X } from 'lucide-react';
@@ -40,7 +42,7 @@ const CookieBanner: React.FC = () => {
       gtag('config', '${GOOGLE_TAG_ID}');
     `;
     document.head.appendChild(inlineScript);
-    
+
     console.log("Google Scripts geladen.");
   };
 
@@ -60,7 +62,7 @@ const CookieBanner: React.FC = () => {
   return (
     <div className="fixed bottom-0 left-0 right-0 z-[60] p-4 md:p-6 animate-in slide-in-from-bottom-4 duration-500">
       <div className="max-w-4xl mx-auto bg-slate-900/95 backdrop-blur-md border border-slate-700 rounded-xl shadow-2xl p-6 md:flex items-center gap-6 ring-1 ring-white/10">
-        
+
         <div className="flex-grow space-y-2 mb-4 md:mb-0">
           <div className="flex items-center gap-2 text-white font-semibold text-lg">
             <ShieldCheck className="w-5 h-5 text-sky-500" />
@@ -72,13 +74,13 @@ const CookieBanner: React.FC = () => {
         </div>
 
         <div className="flex flex-col sm:flex-row gap-3 min-w-fit">
-          <button 
+          <button
             onClick={handleDecline}
             className="px-4 py-2.5 rounded-lg border border-slate-700 text-slate-300 hover:text-white hover:bg-slate-800 transition-colors text-sm font-medium"
           >
             {t.cookie.decline}
           </button>
-          <button 
+          <button
             onClick={handleAccept}
             className="px-6 py-2.5 rounded-lg bg-sky-600 hover:bg-sky-500 text-white font-semibold shadow-lg shadow-sky-500/20 transition-all active:scale-95 text-sm"
           >

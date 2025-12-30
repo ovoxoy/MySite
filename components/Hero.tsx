@@ -1,3 +1,5 @@
+"use client";
+
 import React from 'react';
 import { ArrowRight, CheckCircle2, MapPin } from 'lucide-react';
 import { useLanguage } from '../LanguageContext';
@@ -16,13 +18,13 @@ const Hero: React.FC = () => {
 
       <div className="container mx-auto px-4 relative z-10">
         <div className="max-w-4xl mx-auto text-center flex flex-col items-center">
-          
+
           {/* Badge - Local & Friendly */}
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-indigo-500/20 bg-indigo-500/10 text-indigo-300 text-xs font-semibold tracking-wide uppercase mb-8">
             <MapPin className="w-3 h-3" />
             {t.hero.badge}
           </div>
-          
+
           {/* Headline - Warm & Clear - No Animations for LCP */}
           <h1 className="text-5xl md:text-7xl font-bold tracking-tight mb-6 leading-[1.1] text-white">
             {t.hero.headlineStart}
@@ -30,7 +32,7 @@ const Hero: React.FC = () => {
               {t.hero.headlineHighlight}
             </span>
           </h1>
-          
+
           <p className="text-lg md:text-xl text-slate-400 mb-10 max-w-2xl mx-auto leading-relaxed font-light whitespace-pre-line">
             {t.hero.subheadline}
           </p>

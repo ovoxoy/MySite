@@ -1,4 +1,6 @@
 
+"use client";
+
 import React from 'react';
 import { Check, Sparkles, RefreshCw, Server } from 'lucide-react';
 import { useLanguage } from '../LanguageContext';

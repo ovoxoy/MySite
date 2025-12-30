@@ -1,3 +1,5 @@
+"use client";
+
 import React, { createContext, useContext, useState, ReactNode, useEffect } from 'react';
 import { translations } from './translations';
 
@@ -27,7 +29,7 @@ export const LanguageProvider: React.FC<{ children: ReactNode }> = ({ children }
 
     if (typeof window !== 'undefined') {
       const url = new URL(window.location.href);
-      
+
       if (lang === 'en') {
         url.searchParams.set('lang', 'en');
       } else {

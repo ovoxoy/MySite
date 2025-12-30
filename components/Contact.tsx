@@ -1,3 +1,5 @@
+"use client";
+
 import React, { useState } from 'react';
 import { Mail, MapPin, ArrowRight, MessageCircle, Loader2, CheckCircle2, AlertCircle, Lock } from 'lucide-react';
 import { useLanguage } from '../LanguageContext';

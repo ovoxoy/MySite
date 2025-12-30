@@ -1,12 +1,10 @@
+"use client";
+
 import React from 'react';
 import { useLanguage } from '../LanguageContext';
-import type { PageView } from '../types';
+import Link from 'next/link';
 
-interface FooterProps {
-  onNavigate: (view: PageView) => void;
-}
-
-const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
+const Footer: React.FC = () => {
   const currentYear = new Date().getFullYear();
   const { t } = useLanguage();
 
@@ -53,18 +51,18 @@ const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
           {/* Column 3: Legal Links (Right) */}
           <div className="flex flex-col md:items-end items-center gap-3 md:gap-1">
             <div className="flex gap-6 md:gap-4 text-sm font-medium">
-              <button
-                onClick={() => onNavigate('imprint')}
+              <Link
+                href="/impressum"
                 className="hover:text-white transition-colors"
               >
                 {t.footer.imprint}
-              </button>
-              <button
-                onClick={() => onNavigate('privacy')}
+              </Link>
+              <Link
+                href="/datenschutz"
                 className="hover:text-white transition-colors"
               >
                 {t.footer.privacy}
-              </button>
+              </Link>
               <span className="opacity-50 cursor-not-allowed hidden md:inline">|</span>
               <span className="opacity-50 cursor-not-allowed">{t.footer.terms}</span>
             </div>

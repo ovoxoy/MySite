@@ -1,4 +1,6 @@
 
+"use client";
+
 import React from 'react';
 import { Hammer, Utensils, Briefcase, Smartphone, BarChart3, ShieldCheck, ArrowRight, ExternalLink } from 'lucide-react';
 import { useLanguage } from '../LanguageContext';

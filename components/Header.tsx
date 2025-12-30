@@ -1,19 +1,19 @@
 
+"use client";
+
 import React, { useState, useEffect } from 'react';
 import { Menu, X, Globe } from 'lucide-react';
 import { useLanguage } from '../LanguageContext';
-import type { PageView } from '../types';
-import logo from '../src/assets/logo.png';
 
-interface HeaderProps {
-  onNavigate: (view: PageView) => void;
-  currentView?: PageView;
-}
+import Link from 'next/link';
+import { usePathname, useRouter } from 'next/navigation';
 
-const Header: React.FC<HeaderProps> = ({ onNavigate, currentView }) => {
+const Header: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const { language, setLanguage, t } = useLanguage();
+  const pathname = usePathname();
+  const router = useRouter();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -34,34 +34,24 @@ const Header: React.FC<HeaderProps> = ({ onNavigate, currentView }) => {
     e.preventDefault();
     setMobileMenuOpen(false);
 
-    // 1. URL Hash aktualisieren (für "Standard" Browser Verhalten Feeling)
-    const isSandboxed = typeof window === 'undefined' || window.location.hostname === '';
-
-    if (!isSandboxed) {
-      try {
-        if (target === 'top') {
-          window.history.pushState({ view: 'home' }, '', window.location.pathname);
-        } else {
-          window.history.pushState({ view: 'home' }, '', `#${target}`);
-        }
-      } catch (err) {
-        console.warn("History update failed", err);
-      }
-    }
-
-    // 2. Navigation auslösen
-    // Wenn wir nicht auf Home sind, wechselt App.tsx die View und der useEffect dort scrollt zum Hash
-    // Wenn wir schon auf Home sind, scrollen wir manuell
-    if (currentView !== 'home') {
-      onNavigate('home');
-    } else {
+    if (pathname === '/') {
       if (target === 'top') {
         window.scrollTo({ top: 0, behavior: 'smooth' });
+        // Optional: clear hash
+        window.history.pushState(null, '', '/');
       } else {
         const element = document.getElementById(target);
         if (element) {
           element.scrollIntoView({ behavior: 'smooth' });
+          window.history.pushState(null, '', `#${target}`);
         }
+      }
+    } else {
+      // Navigate to home with hash
+      if (target === 'top') {
+        router.push('/');
+      } else {
+        router.push(`/#${target}`);
       }
     }
   };
@@ -77,14 +67,14 @@ const Header: React.FC<HeaderProps> = ({ onNavigate, currentView }) => {
         <div className="container mx-auto px-4 flex justify-between items-center">
           {/* Logo */}
           <a
-            href="#"
+            href="/"
             onClick={(e) => handleNavClick(e, 'top')}
             className="flex items-center gap-3 group focus:outline-none"
             aria-label="Zurück zum Start"
           >
             <div className="relative w-10 h-10 rounded-full overflow-hidden shadow-lg shadow-sky-500/10 border border-white/5 bg-slate-900">
               <img
-                src={logo}
+                src="/logo.png"
                 alt="Maxim Klapf Logo"
                 width="40"
                 height="40"
@@ -99,7 +89,7 @@ const Header: React.FC<HeaderProps> = ({ onNavigate, currentView }) => {
           {/* Desktop Nav */}
           <nav className="hidden md:flex items-center gap-8">
             <a
-              href="#"
+              href="/"
               onClick={(e) => handleNavClick(e, 'top')}
               className="text-slate-400 hover:text-white text-sm font-medium transition-colors focus:outline-none focus:text-white"
             >
@@ -157,7 +147,7 @@ const Header: React.FC<HeaderProps> = ({ onNavigate, currentView }) => {
         {mobileMenuOpen && (
           <div className="absolute top-full left-0 w-full bg-slate-950 border-b border-slate-800 md:hidden flex flex-col shadow-2xl animate-in slide-in-from-top-4 duration-200">
             <a
-              href="#"
+              href="/"
               className="text-left text-slate-300 hover:text-white px-6 py-4 border-b border-slate-900 transition-colors active:bg-slate-900"
               onClick={(e) => handleNavClick(e, 'top')}
             >
