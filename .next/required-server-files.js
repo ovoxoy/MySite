@@ -141,8 +141,8 @@ self.__SERVER_FILES_MANIFEST={
       "isExperimentalCompile": false
     }
   },
-  "appDir": "C:\\Users\\werne\\Desktop\\Cursor\\MySite",
-  "relativeAppDir": "MySite",
+  "appDir": "C:\\Users\\werne\\Desktop\\Cursor\\mysitetest",
+  "relativeAppDir": "",
   "files": [
     ".next\\routes-manifest.json",
     ".next\\server\\pages-manifest.json",
